@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 import dao.LoginDAO;
-import view.AdministerView;
 import view.BoardView;
 import view.LoginView;
 import view.MenuView;
@@ -75,9 +74,12 @@ public class Restaurant {
 					
 				}
 			}else if(select == 2) {
-				Orderview ov = new Orderview(login, basketlist, pay_cnt++);
-				ov.orderpage();
-				
+				if(Static.isLogin(login)) {
+					Orderview ov = new Orderview(login, basketlist, pay_cnt++);
+					ov.orderpage();
+				}else {
+					System.out.println("로그인 후 사용하세요");
+				}
 			}else if(select == 3) {
 				if(Static.isLogin(login)) {
 					ReserveView rv = new ReserveView(login);

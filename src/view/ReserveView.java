@@ -450,6 +450,7 @@ public class ReserveView {
 				reserve(year, month, day);
 			}else {
 				System.out.println("예약과정중 오류가 발생하였습니다");
+				reserve(year, month, day);
 			}
 			
 			

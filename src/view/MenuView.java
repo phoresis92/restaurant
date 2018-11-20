@@ -68,8 +68,7 @@ public class MenuView {
 				if(Static.isLogin(login)) {
 					int breaking = gobasket();
 					if(breaking == 0) {
-//						order();
-						menuSearch();
+						order();
 					}
 				}else {
 					System.out.println("로그인 후 사용하세요");
@@ -255,7 +254,7 @@ public class MenuView {
 	}//go basket end
 	
 	
-	/*public void order() {
+	public void order() {
 		
 		
 		try {
@@ -267,12 +266,15 @@ public class MenuView {
 				if(gorder.equalsIgnoreCase("Y")) {
 					Orderview ov = new Orderview(login, basketlist);
 					ov.pay();
+					return;
 				}else if(gorder.equalsIgnoreCase("N")) {
 					menuSearch();
+					return;
 				}else {
 					
 					System.out.println("Y/N 으로 입력해주세요");
 					order();
+					return;
 				}
 				
 				
@@ -280,14 +282,14 @@ public class MenuView {
 				
 			}else {
 				menuSearch();
+				return;
 			}
 		}catch(Exception e) {
-			menuSearch();
 		}
 		
 		
 	}//order method end
-*/	
+	
 	
 	public void updatebasket() {
 		

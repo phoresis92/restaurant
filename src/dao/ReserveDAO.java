@@ -35,125 +35,26 @@ public class ReserveDAO {
 				vo = a;
 			}
 			
-			String sql = "select * from "+day+" where tabnum = 1";
-
-			
-			Statement state = con.createStatement();
-			ResultSet rset = state.executeQuery(sql);
-			
 			
 			int cnt = 0;
-			while(rset.next()) {
+			String sql ="";
+			for(int i = 1 ; i < 9 ; i++) {
+				sql = "select * from "+day+" where tabnum = "+i;
+	
 				
-				cnt = count(rset, cnt, vo);
+				Statement state = con.createStatement();
+				ResultSet rset = state.executeQuery(sql);
 				
-			}
-			
-			
-			sql = "select * from "+day+" where tabnum = 2";
-
-			
-			state = con.createStatement();
-			rset = state.executeQuery(sql);
-			
-			
-			
-			while(rset.next()) {
 				
-				cnt = count(rset, cnt, vo);
-				
-			}
-			
-			
-			sql = "select * from "+day+" where tabnum = 3";
-
-			
-			state = con.createStatement();
-			rset = state.executeQuery(sql);
-			
-			
-			
-			while(rset.next()) {
-				
-				cnt = count(rset, cnt, vo);
-				
-			}
-			
-			
-			sql = "select * from "+day+" where tabnum = 4";
-
-			
-			state = con.createStatement();
-			rset = state.executeQuery(sql);
-			
-			
-			
-			while(rset.next()) {
-				
-				cnt = count(rset, cnt, vo);
-				
+				while(rset.next()) {
+					
+					cnt = count(rset, cnt, vo);
+					
+				}
 			}
 			
 			
 			
-			sql = "select * from "+day+" where tabnum = 5";
-
-			
-			state = con.createStatement();
-			rset = state.executeQuery(sql);
-			
-			
-			
-			while(rset.next()) {
-				
-				cnt = count(rset, cnt, vo);
-				
-			}
-			
-			
-			sql = "select * from "+day+" where tabnum = 6";
-
-			
-			state = con.createStatement();
-			rset = state.executeQuery(sql);
-			
-			
-			
-			while(rset.next()) {
-				
-				cnt = count(rset, cnt, vo);
-				
-			}
-			
-			
-			sql = "select * from "+day+" where tabnum = 7";
-
-			
-			state = con.createStatement();
-			rset = state.executeQuery(sql);
-			
-			
-			
-			while(rset.next()) {
-				
-				cnt = count(rset, cnt, vo);
-				
-			}
-			
-			
-			sql = "select * from "+day+" where tabnum = 8";
-
-			
-			state = con.createStatement();
-			rset = state.executeQuery(sql);
-			
-			
-			
-			while(rset.next()) {
-				
-				cnt = count(rset, cnt, vo);
-				
-			}
 			
 			if(cnt >3) {
 				System.out.println("예약은 하루에 4개 이상 하실 수 없습니다");
@@ -161,13 +62,26 @@ public class ReserveDAO {
 				return 0;
 			}
 			
+			sql = "select "+time+"mem from "+day+" where tabnum = ?";
 			
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setInt(1, rtable);
+			ResultSet rs = st.executeQuery();
 			
+			int who = 0;
+			while(rs.next()) {
+				who = rs.getInt(time+"mem");
+			}
+			
+			if(who!=0&&who != vo.getSeq()) {
+				System.out.println("이미 예약된 테이블 입니다");
+				return 0;
+			}
 			
 			
 			sql = "update "+day+" set "+time+"mem = "+vo.getSeq()+" where tabnum = ?";
 
-			PreparedStatement st = con.prepareStatement(sql);
+			st = con.prepareStatement(sql);
 			st.setInt(1, rtable);
 			result = st.executeUpdate();
 
