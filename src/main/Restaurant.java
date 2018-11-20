@@ -22,6 +22,7 @@ public class Restaurant {
 		HashMap<MemberVO, ArrayList<MenuVO>> login = null;
 		ArrayList<MenuVO> basketlist = null;
 		MemberVO mvo = null;
+		int pay_cnt = 0;
 		
 		
 		
@@ -74,8 +75,8 @@ public class Restaurant {
 					
 				}
 			}else if(select == 2) {
-				Orderview ov = new Orderview(login, basketlist);
-				ov.pay();
+				Orderview ov = new Orderview(login, basketlist, pay_cnt++);
+				ov.orderpage();
 				
 			}else if(select == 3) {
 				if(Static.isLogin(login)) {

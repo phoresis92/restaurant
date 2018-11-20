@@ -12,6 +12,7 @@ public class MemberVO {
 	private String email;
 	private int administer;
 	private MenuVO vo;
+	private int point;
 	
 	
 	public MemberVO() {
@@ -129,6 +130,22 @@ public class MemberVO {
 
 	public void setAdminister(int administer) {
 		this.administer = administer;
+	}
+
+
+
+
+
+	public int getPoint() {
+		return point;
+	}
+
+
+
+
+
+	public void setPoint(int point) {
+		this.point = point;
 	}
 
 

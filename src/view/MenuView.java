@@ -68,7 +68,8 @@ public class MenuView {
 				if(Static.isLogin(login)) {
 					int breaking = gobasket();
 					if(breaking == 0) {
-						order();
+//						order();
+						menuSearch();
 					}
 				}else {
 					System.out.println("로그인 후 사용하세요");
@@ -252,7 +253,7 @@ public class MenuView {
 	}//go basket end
 	
 	
-	public void order() {
+	/*public void order() {
 		
 		
 		try {
@@ -284,7 +285,7 @@ public class MenuView {
 		
 		
 	}//order method end
-	
+*/	
 	
 	public void updatebasket() {
 		
