@@ -13,7 +13,7 @@ import vo.MemberVO;
 
 public class OrderDAO {
 
-	public int charge(String pay_seq, int member_seq, int menu_seq, int menu_count, String table) {
+	public int charge(String pay_seq, int member_seq, int menu_seq, int menu_count ,int month, int kind) {
 		
 		int result = 0;
 		Connection con = null;
@@ -26,12 +26,14 @@ public class OrderDAO {
 
 			con.setAutoCommit(false);
 
-			String sql = "insert into "+table+" values("+pay_seq+", ? , ? , sysdate, ?)";
+			String sql = "insert into salary_"+month+" values("+pay_seq+", ? , ? , sysdate, ?, ?)";
 
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setInt(1, member_seq);
 			st.setInt(2, menu_seq);
 			st.setInt(3, menu_count);
+			st.setInt(4, kind);
+			
 			
 			result = st.executeUpdate();
 
@@ -80,67 +82,28 @@ public class OrderDAO {
 			
 			con.setAutoCommit(false);
 			
-			Set<String> payseq_set = new HashSet<String>();
 			
 			
-			String sql = "select pay_seq\r\n" + 
-					"from main_11 main , member mem , main_menu menu\r\n" + 
-					"where main.member_seq = mem.member_seq\r\n" + 
-					"and main.main_seq = menu.menu_id\r\n" + 
-					"and mem.member_id = ?\r\n" + 
-					"group by pay_seq";
+			String sql = "select pay_seq from salary_11 "
+					+ "where member_seq = ? group by pay_seq";
 
 			PreparedStatement st = con.prepareStatement(sql);
-			st.setString(1, memvo.getMember_id());
+			st.setInt(1, memvo.getSeq());
 			
 			ResultSet set = st.executeQuery();
-			String main_order = "";
-			while(set.next()) {
-				main_order = set.getString("pay_seq");
-				payseq_set.add(main_order);
-			}
-
-			sql = "select pay_seq\r\n" + 
-					"from side_11 side, member mem, side_menu menu\r\n" + 
-					"where side.member_seq = mem.member_seq\r\n" + 
-					"and side.side_seq = menu.menu_id\r\n" + 
-					"and mem.member_id = ?\r\n" + 
-					"group by pay_seq";
 			
-			st = con.prepareStatement(sql);
-			st.setString(1, memvo.getMember_id());
-			
-			set = st.executeQuery();
-			String side_order = "";
-			while(set.next()) {
-				side_order = set.getString("pay_seq");
-				payseq_set.add(side_order);
-			}
-			
-			sql = "select pay_seq\r\n" + 
-					"from drink_11 drink, member mem, drink_menu menu\r\n" + 
-					"where drink.member_seq = mem.member_seq\r\n" + 
-					"and drink.drink_seq =menu.menu_id\r\n" + 
-					"and mem.member_id = ?\r\n" + 
-					"group by pay_seq";
-			
-			
-			st = con.prepareStatement(sql);
-			st.setString(1, memvo.getMember_id());
-			
-			set = st.executeQuery();
-			String drink_order = "";
-			while(set.next()) {
-				drink_order = set.getString("pay_seq");
-				payseq_set.add(drink_order);
-			}
-
-			pay = new HashMap<Integer,String>();
-			
-			System.out.println("--------------------------------------------------------");
-
 			int num = 1;
-			for(String pay_seq : payseq_set) {
+			pay = new HashMap<Integer,String>();
+			System.out.println("--------------------------------------------------------");
+			while(set.next()) {
+				String pay_seq = set.getString("pay_seq");
+
+			
+
+			
+
+			
+			
 				
 				String[] output = billist(pay_seq, memvo);
 				String totalpay = output[0];
@@ -148,12 +111,13 @@ public class OrderDAO {
 				
 				System.out.println(num+") 결제번호: "+pay_seq+" 결제일 : "+paydate+" 총금액 : "+totalpay);
 				pay.put(num, pay_seq);
+				//System.out.println(pay.get(num));
 				num++;
-				
-			}
 			
-			System.out.println("--------------------------------------------------------");
+			
 
+			}
+			System.out.println("--------------------------------------------------------");
 			
 			con.commit();
 
@@ -207,9 +171,9 @@ public class OrderDAO {
 			System.out.println();
 			
 			String sql = "select * " + 
-					"from main_11 main , member mem , main_menu menu\r\n" + 
-					"where main.member_seq = mem.member_seq\r\n" + 
-					"and main.main_seq = menu.menu_id\r\n" + 
+					"from salary_11 salary , member mem , menu\r\n" + 
+					"where salary.member_seq = mem.member_seq\r\n" + 
+					"and salary.menu_seq = menu.menu_id\r\n" + 
 					"and pay_seq= ?";
 
 			PreparedStatement st = con.prepareStatement(sql);
@@ -229,48 +193,7 @@ public class OrderDAO {
 			
 			System.out.println();
 
-			sql = "select * " + 
-					"from side_11 side, member mem, side_menu menu\r\n" + 
-					"where side.member_seq = mem.member_seq\r\n" + 
-					"and side.side_seq = menu.menu_id\r\n" + 
-					"and pay_seq = ?";
 			
-			st = con.prepareStatement(sql);
-			st.setString(1, pay_seq);
-			
-			
-			set = st.executeQuery();
-			while(set.next()) {
-				String menu_name = set.getString("menu_name");
-				int count = set.getInt("count");
-				int price = set.getInt("price");
-				paydate = set.getString("paydate");
-				System.out.println(menu_name+"  "+price+"  "+count+"  "+price*count);
-				totalpay += price*count;
-			}
-			
-			System.out.println();
-			
-			sql = "select * " + 
-					"from drink_11 drink, member mem, drink_menu menu\r\n" + 
-					"where drink.member_seq = mem.member_seq\r\n" + 
-					"and drink.drink_seq =menu.menu_id\r\n" + 
-					"and pay_seq = ?";
-			
-			
-			st = con.prepareStatement(sql);
-			st.setString(1, pay_seq);
-			
-			set = st.executeQuery();
-			
-			while(set.next()) {
-				String menu_name = set.getString("menu_name");
-				int count = set.getInt("count");
-				int price = set.getInt("price");
-				paydate = set.getString("paydate");
-				System.out.println(menu_name+"  "+price+"  "+count+"  "+price*count);
-				totalpay += price*count;
-			}
 			
 			
 			System.out.println();
@@ -335,11 +258,11 @@ public class OrderDAO {
 			String paydate = "";
 			int totalpay = 0 ;
 			
-			String sql = "select * " + 
-					"from main_11 main , member mem , main_menu menu\r\n" + 
-					"where main.member_seq = mem.member_seq\r\n" + 
-					"and main.main_seq = menu.menu_id\r\n" + 
-					"and pay_seq= ?";
+			String sql = "select *\r\n" + 
+					"from salary_11 salary , member mem , menu\r\n" + 
+					"where salary.member_seq = mem.member_seq\r\n" + 
+					"and salary.menu_seq = menu.menu_id\r\n" + 
+					"and pay_seq = ?";
 
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, pay_seq);
@@ -354,45 +277,7 @@ public class OrderDAO {
 			}
 			
 
-			sql = "select * " + 
-					"from side_11 side, member mem, side_menu menu\r\n" + 
-					"where side.member_seq = mem.member_seq\r\n" + 
-					"and side.side_seq = menu.menu_id\r\n" + 
-					"and pay_seq = ?";
 			
-			st = con.prepareStatement(sql);
-			st.setString(1, pay_seq);
-			
-			
-			set = st.executeQuery();
-			while(set.next()) {
-				String menu_name = set.getString("menu_name");
-				int count = set.getInt("count");
-				int price = set.getInt("price");
-				paydate = set.getString("paydate");
-				totalpay += price*count;
-			}
-			
-			
-			sql = "select * " + 
-					"from drink_11 drink, member mem, drink_menu menu\r\n" + 
-					"where drink.member_seq = mem.member_seq\r\n" + 
-					"and drink.drink_seq =menu.menu_id\r\n" + 
-					"and pay_seq = ?";
-			
-			
-			st = con.prepareStatement(sql);
-			st.setString(1, pay_seq);
-			
-			set = st.executeQuery();
-			
-			while(set.next()) {
-				String menu_name = set.getString("menu_name");
-				int count = set.getInt("count");
-				int price = set.getInt("price");
-				paydate = set.getString("paydate");
-				totalpay += price*count;
-			}
 			
 			
 			String total = Integer.toString(totalpay);

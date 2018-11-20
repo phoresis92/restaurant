@@ -113,26 +113,25 @@ public class Orderview {
 								
 								int month = cal.get(Calendar.MONTH)+1;
 								
-								String table = "";
+								int kind = 0;
 								if(menu_seq<=1000) {
-									table = "main_"+month;
+									kind = 1;
 								}else if(menu_seq<=1500) {
-									table = "side_"+month;
+									kind = 2;
 								}else {
-									table = "drink_"+month;
+									kind = 3;
 								}
 								
 								
 								System.out.println(member_seq);
 								System.out.println(menu_seq);
 								System.out.println(menu_count);
-								System.out.println(table);
+								System.out.println(kind);
 								
-								
-								int result = dao.charge(pay_seq, member_seq, menu_seq, menu_count, table);
+								int result = dao.charge(pay_seq, member_seq, menu_seq, menu_count, month , kind);
 								if(result == 1) {
 									System.out.println("구매가 정상처리 되었습니다");
-									
+									basketlist.clear();
 								}else {
 									System.out.println("구매도중 오류가 발생 하였습니다.");
 									

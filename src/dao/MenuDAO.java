@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import vo.MenuVO;
 
@@ -26,15 +26,14 @@ public class MenuDAO {
 
 			con.setAutoCommit(false);
 
-			String sql = "select menu_id, menu_name, price, commen from main_menu";
+			String sql = "select * from menu where menu_id<=1000";
 
-			PreparedStatement st = con.prepareStatement(sql);
-			ResultSet rs = st.executeQuery();
+			Statement st = con.createStatement();
+			ResultSet rs = st.executeQuery(sql);
 
 			list = new ArrayList<MenuVO>();
 
 			int cnt = 1;
-			
 			System.out.println("==============================================");
 			while (rs.next()) {
 				int id = rs.getInt("menu_id");
@@ -44,7 +43,6 @@ public class MenuDAO {
 
 				
 				MenuVO vo = new MenuVO(id, name, price, comment);
-
 				list.add(vo);
 
 				System.out.println(cnt++ + ") " + name + " " + price + "원 \r\n\t" + comment);
@@ -96,7 +94,7 @@ public class MenuDAO {
 
 			con.setAutoCommit(false);
 
-			String sql = "select * from side_menu";
+			String sql = "select * from menu where menu_id>1000 and menu_id<=1500";
 
 			PreparedStatement st = con.prepareStatement(sql);
 			ResultSet rs = st.executeQuery();
@@ -167,10 +165,10 @@ public class MenuDAO {
 
 			con.setAutoCommit(false);
 
-			String sql = "select * from drink_menu";
+			String sql = "select * from menu where menu_id>1500";
 
-			PreparedStatement st = con.prepareStatement(sql);
-			ResultSet rs = st.executeQuery();
+			Statement st = con.createStatement();
+			ResultSet rs = st.executeQuery(sql);
 
 			list = new ArrayList<MenuVO>();
 

@@ -141,6 +141,7 @@ public class MenuView {
 					int menunum = Integer.parseInt(menu);
 					if(menunum == 0) {
 						menuSearch();
+						return;
 					}
 					if(menunum < 0) {
 						System.out.println("음수를 입력하실 수 없습니다");
@@ -165,6 +166,7 @@ public class MenuView {
 					int numm = Integer.parseInt(num);
 					if(numm == 0) {
 						menuSearch();
+						return;
 					}
 					if(numm < 0) {
 						System.out.println("음수를 입력하실 수 없습니다");
