@@ -54,13 +54,6 @@ public class ReserveView {
 			if(menunum.equals("1")) {
 				
 				
-				
-				
-				
-				
-				
-				
-				
 				String reserveday = "";
 				int rday = 0;
 				while(reserveday.equals("")) {
@@ -77,7 +70,7 @@ public class ReserveView {
 							
 							
 							
-							resultday = transformday(rday);
+							resultday = reserveday;
 							
 							resultmonth = transformonth(cp.monthnum);
 							
@@ -197,7 +190,7 @@ public class ReserveView {
 							
 							
 							
-							resultday = transformday(rday);
+							resultday = reserveday;
 							
 							resultmonth = transformonth(monthnum);
 							
@@ -316,6 +309,7 @@ public class ReserveView {
 						rday = Integer.parseInt(reserveday);
 						if(rday == 0) {
 							when();
+							return;
 						}else if(rday<1||rday>cp.lastDay) {
 							System.out.println("범위를 초과하였습니다.");
 							reserveday = "";
@@ -327,7 +321,7 @@ public class ReserveView {
 							
 							
 							
-							resultday = transformday(rday);
+							resultday = reserveday;
 							
 							resultmonth = transformonth(monthnum);
 							
@@ -474,6 +468,7 @@ public class ReserveView {
 			if(Static.isInt(canceltime)) {
 				int ctime = Integer.parseInt(canceltime);
 				if(ctime == 0){
+					when();
 					return;
 				}else if(ctime < 10 || ctime >18) {
 					System.out.println("[10]시 에서 [18]시 사이의 값을 입력해 주세요");

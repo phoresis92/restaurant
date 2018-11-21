@@ -158,7 +158,7 @@ public class Restaurant {
 					
 					if(mvo.getAdminister() == 1) {
 						
-						AdministerView ap = new AdministerView();
+						Administer ap = new Administer();
 						ap.adminMain();
 						
 						

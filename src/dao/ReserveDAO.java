@@ -24,7 +24,7 @@ public class ReserveDAO {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			// System.out.println("드라이버 로딩 완료");
 
-			con = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe", month+year, "1234");
+			con = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe", "r"+year, "1234");
 			// System.out.println("연결성공");
 
 			con.setAutoCommit(false);
@@ -39,7 +39,7 @@ public class ReserveDAO {
 			int cnt = 0;
 			String sql ="";
 			for(int i = 1 ; i < 9 ; i++) {
-				sql = "select * from "+day+" where tabnum = "+i;
+				sql = "select * from "+month+"_"+day+" where tabnum = "+i;
 	
 				
 				Statement state = con.createStatement();
@@ -62,7 +62,7 @@ public class ReserveDAO {
 				return 0;
 			}
 			
-			sql = "select "+time+"mem from "+day+" where tabnum = ?";
+			sql = "select "+time+"mem from "+month+"_"+day+" where tabnum = ?";
 			
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setInt(1, rtable);
@@ -79,7 +79,7 @@ public class ReserveDAO {
 			}
 			
 			
-			sql = "update "+day+" set "+time+"mem = "+vo.getSeq()+" where tabnum = ?";
+			sql = "update "+month+"_"+day+" set "+time+"mem = "+vo.getSeq()+" where tabnum = ?";
 
 			st = con.prepareStatement(sql);
 			st.setInt(1, rtable);
@@ -122,13 +122,13 @@ public class ReserveDAO {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			// System.out.println("드라이버 로딩 완료");
 
-			con = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe", month+year, "1234");
+			con = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe", "r"+year, "1234");
 			// System.out.println("연결성공");
 
 			con.setAutoCommit(false);
 
 
-			String sql = "select * from "+day+" order by tabnum";   
+			String sql = "select * from "+month+"_"+day+" order by tabnum";   
 
 			Statement ps = con.createStatement();
 			ResultSet rs = ps.executeQuery(sql);
@@ -246,7 +246,7 @@ public class ReserveDAO {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			// System.out.println("드라이버 로딩 완료");
 
-			con = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe", month+year, "1234");
+			con = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe", "r"+year, "1234");
 			// System.out.println("연결성공");
 
 			con.setAutoCommit(false);
@@ -258,7 +258,7 @@ public class ReserveDAO {
 			}
 			
 			
-			String sql = "select "+time+"mem from "+day+" where tabnum = ?";
+			String sql = "select "+time+"mem from "+month+"_"+day+" where tabnum = ?";
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setInt(1, ctable);
 			ResultSet rset = st.executeQuery();
@@ -274,7 +274,7 @@ public class ReserveDAO {
 			}
 			
 			
-			sql = "update "+day+" set "+time+"mem = 0 where tabnum = ?";
+			sql = "update "+month+"_"+day+" set "+time+"mem = 0 where tabnum = ?";
 
 			st = con.prepareStatement(sql);
 			st.setInt(1, ctable);
