@@ -2,29 +2,34 @@ package view;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import dao.ReserveDAO;
+import dao.AdminMemberDAO;
+import dao.AdminReserveDAO;
+import main.Administer;
 import main.CalendarPrint;
 import main.Static;
 import vo.MemberVO;
 import vo.MenuVO;
 
-public class ReserveView {
+public class AdminReserveView {
+
 	
 	HashMap<MemberVO, ArrayList<MenuVO>> login;
 	Scanner sc = new Scanner(System.in);
-	ReserveDAO dao = new ReserveDAO();
+	AdminReserveDAO dao = new AdminReserveDAO();
 	
 	
-	public ReserveView(HashMap<MemberVO, ArrayList<MenuVO>> login) {
+	public AdminReserveView(HashMap<MemberVO, ArrayList<MenuVO>> login) {
 		this.login = login;
 	}
 	
+	public AdminReserveView() {
+		
+	}
 	
 	
 	public void when() {
@@ -35,7 +40,8 @@ public class ReserveView {
 		cp.printhismonth(cal.get(Calendar.YEAR),cal.get(Calendar.MONTH)+1);
 		cp.printCal();
 		
-		System.out.println("구현 범위 [ 2018/11월 ~ 2019/1월 ]");
+		System.out.println("구현 범위 [ 2018/11월]");
+		System.out.println("구현 범위 [ 2019/1월]");
 		System.out.println("1. 일자 선택");
 		System.out.println("2. 다른 연도, 다른 월 선택하기");
 		System.out.println("3. 예약 취소하기");
@@ -355,6 +361,7 @@ public class ReserveView {
 				
 				
 			}else if(menunum.equals("4")) {
+				new Administer().adminMain();
 				return;
 			}else {
 				System.out.println("번호 확인후 입력해 주세요");
@@ -372,7 +379,7 @@ public class ReserveView {
 			
 		}else {
 			System.out.println("숫자를 입력해 주세요");
-			when(); 
+			when();
 			return;
 		}
 	
@@ -384,7 +391,7 @@ public class ReserveView {
 	
 	
 	public void reserve(String year, String month, String day) {
-		if(Static.isLogin(login)) {
+	
 			
 			showtable(year, month, day);
 			System.out.println("[*] : 예약됨  | [@] : 내 예약 | 뒤로가기 0번");
@@ -393,6 +400,7 @@ public class ReserveView {
 			if(Static.isInt(reservetime)) {
 				int rtime = Integer.parseInt(reservetime);
 				if(rtime == 0){
+					when();
 					return;
 				}else if(rtime < 10 || rtime >18) {
 					System.out.println("[10]시 에서 [18]시 사이의 값을 입력해 주세요");
@@ -411,6 +419,7 @@ public class ReserveView {
 			if(Static.isInt(reservetable)) {
 				int rtable = Integer.parseInt(reservetable);
 				if(rtable == 0) {
+					when();
 					return;
 				}else if(rtable <1 || rtable > 8) {
 					System.out.println("[1]번 에서 [8]번 테이블을 입력해 주세요");
@@ -422,6 +431,34 @@ public class ReserveView {
 				reserve(year, month, day);
 				return;
 			}
+			
+			
+			System.out.print("예약할 회원 번호를 입력하세요(뒤로가기 0) : ");
+			String reservemem = sc.nextLine();
+			int rmem = 0;
+			if(Static.isInt(reservemem)) {
+				rmem = Integer.parseInt(reservemem);
+				
+				AdminMemberDAO amdao = new AdminMemberDAO();
+				if(amdao.selectmem(rmem) != rmem) {
+					System.out.println("존재하지 않는 회원 입니다.");
+					reserve(year,month,day);
+					return;
+				}
+				
+				
+				if(rmem == 0) {
+					reserve(year,month,day);
+					return;
+				}
+				
+				
+			}else {
+				System.out.println("숫자를 입력해 주세요");
+				reserve(year, month, day);
+				return;
+			}
+			
 			
 			
 			int rtime = Integer.parseInt(reservetime);
@@ -449,7 +486,7 @@ public class ReserveView {
 			
 			}
 			
-			int result = dao.insert(time, rtable, year, month, day, login);
+			int result = dao.insert(time, rtable, year, month, day, rmem);
 			if(result == 1) {
 				System.out.println("예약이 완료 되었습니다.");
 				reserve(year, month, day);
@@ -461,9 +498,7 @@ public class ReserveView {
 			}
 			
 			
-		}else {
-			System.out.println("로그인 후 사용해주세요");
-		}
+		
 	}
 	
 	
@@ -472,7 +507,7 @@ public class ReserveView {
 		
 		
 		
-		if(Static.isLogin(login)) {
+		
 			
 			showtable(year, month, day);
 			System.out.println("[*] : 예약됨  | [@] : 내 예약 | 뒤로가기 0번");
@@ -538,7 +573,7 @@ public class ReserveView {
 			
 			}
 			
-			int result = dao.delete(time, ctable, year, month, day, login);
+			int result = dao.delete(time, ctable, year, month, day);
 			if(result == 1) {
 				System.out.println("취소가 완료 되었습니다.");
 				cancel(year, month, day);
@@ -550,9 +585,7 @@ public class ReserveView {
 			}
 			
 			
-		}else {
-			System.out.println("로그인 후 사용해주세요");
-		}
+		
 		
 		
 		
@@ -615,24 +648,28 @@ public class ReserveView {
 
 	}// showtable method end
 	
-	public void tableLoop(String[][] arr , MemberVO mvo , int[] tablenum, int tabn) {
-		
-		for(int i = 0 ; i < 9 ; i++) {
+	public void tableLoop(String[][] arr, MemberVO mvo, int[] tablenum, int tabn) {
+
+		for (int i = 0; i < 9; i++) {
 			String k = String.valueOf(tablenum[i]);
 
-			if(tablenum[i] == mvo.getSeq()) {
-				k = "["+"@"+"]";
-			}else if(tablenum[i] == 0) {
-				k = "[ ]";
-			}else {
-				k = "["+"*"+"]";
+			if (tablenum[i] == 0) {
+				k = "[   ]";
+			} else if (tablenum[i] >= 1 && tablenum[i] <= 9) {
+				k = "[ " + tablenum[i] + " ]";
+			} else if (tablenum[i] >= 10 && tablenum[i] <= 99) {
+				k = "[ " + tablenum[i] + "]";
+			} else  {
+				k = "[" + tablenum[i] + "]";
 			}
+
 			arr[tabn][i] = k;
-			
+
+
+
 		}
-	
-		
-	}//tableLoop method end
+
+	}// tableLoop method end
 	
 	
 
@@ -750,4 +787,4 @@ public class ReserveView {
 	
 	
 	
-}//class end
+}

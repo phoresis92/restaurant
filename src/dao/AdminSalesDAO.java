@@ -25,13 +25,17 @@ public class AdminSalesDAO {
 			con.setAutoCommit(false);
 			PreparedStatement st = null;
 			for(int i = 1 ; i<=12 ; i++) {
+				String k = Integer.toString(i);
 				
+				if(i<10) {
+					k = "0"+k;
+				}
 				
 				String sql = "select count, price\r\n" + 
 							"from salary_"+i+" salary, member mem, menu\r\n" + 
 							"where salary.member_seq = mem.member_seq\r\n" + 
 							"and salary.menu_seq = menu.menu_id\r\n" + 
-							"and to_char(paydate,'yy-mm-dd') <= '18-11-15'\r\n" + 
+							"and to_char(paydate,'yy-mm-dd') <= '18-"+k+"-15'\r\n" + 
 							"order by paydate";
 					
 					
@@ -48,14 +52,13 @@ public class AdminSalesDAO {
 					result1 += a*b;
 	
 				}
-				map.put(i*2-1, result1);
-				
+				map.put(cnt++, result1);
 				
 				sql = "select count, price\r\n" + 
 						"from salary_"+i+" salary, member mem, menu\r\n" + 
 						"where salary.member_seq = mem.member_seq\r\n" + 
 						"and salary.menu_seq = menu.menu_id\r\n" + 
-						"and to_char(paydate,'yy-mm-dd') > '18-11-15'\r\n" + 
+						"and to_char(paydate,'yy-mm-dd') > '18-"+k+"-15'\r\n" + 
 						"order by paydate";
 				
 				
@@ -69,9 +72,8 @@ public class AdminSalesDAO {
 					result2 += a*b;
 	
 				}
-				map.put(cnt*2, result2);
+				map.put(cnt++, result2);
 				
-				cnt++;
 			}
 			con.commit();
 

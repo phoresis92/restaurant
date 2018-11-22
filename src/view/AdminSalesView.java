@@ -17,32 +17,32 @@ public class AdminSalesView {
 	public void monthsales() {
 		
 		
-		//HashMap<Integer,Integer> map = dao.monthsalescal();
+		HashMap<Integer,Integer> map = dao.monthsalescal();
 	
-		int jan1 = 1400000;//map.get(1);
-		int jan2 = 2400000;//map.get(2);
-		int feb1 = 3400000;//map.get(3);
-		int feb2 = 9400000;//map.get(4);
-		int mar1 = 400000;//map.get(5);
-		int mar2 = 2400000;//map.get(6);
-		int apr1 = 1400000;//map.get(7);
-		int apr2 = 2234000;//map.get(8);
-		int may1 = 1234000;//map.get(9);
-		int may2 = 240000;//map.get(10);
-		int jun1 = 2400000;//map.get(11);
-		int jun2 = 2400000;//map.get(12);
-		int jul1 = 2400000;//map.get(13);
-		int jul2 = 2400000;//map.get(14);
-		int aug1 = 2400000;//map.get(15);
-		int aug2 = 2400000;//map.get(16);
-		int sep1 = 2400000;//map.get(17);
-		int sep2 =0;// map.get(18);
-		int oct1 = 2400000;//map.get(19);
-		int oct2 = 2400000;//map.get(20);
-		int nov1 = 2400000;//map.get(21);
-		int nov2 = 2400000;//map.get(22);
-		int dec1 = 2400000;//map.get(23);
-		int dec2 = 2400000;//map.get(24);
+		int jan1 = map.get(1);
+		int jan2 = map.get(2);
+		int feb1 = map.get(3);
+		int feb2 = map.get(4);
+		int mar1 = map.get(5);
+		int mar2 = map.get(6);
+		int apr1 = map.get(7);
+		int apr2 = map.get(8);
+		int may1 = map.get(9);
+		int may2 = map.get(10);
+		int jun1 = map.get(11);
+		int jun2 = map.get(12);
+		int jul1 = map.get(13);
+		int jul2 = map.get(14);
+		int aug1 = map.get(15);
+		int aug2 = map.get(16);
+		int sep1 = map.get(17);
+		int sep2 = map.get(18);
+		int oct1 = map.get(19);
+		int oct2 = map.get(20);
+		int nov1 = map.get(21);
+		int nov2 = map.get(22);
+		int dec1 = map.get(23);
+		int dec2 = map.get(24);
 		
 		
 		int min = 200*1000;
