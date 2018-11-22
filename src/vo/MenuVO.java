@@ -19,6 +19,8 @@ public class MenuVO {
 		
 	}
 	
+	public MenuVO() {}
+	
 	
 	@Override
 	public String toString() {

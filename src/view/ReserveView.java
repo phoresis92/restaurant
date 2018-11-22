@@ -63,6 +63,7 @@ public class ReserveView {
 						rday = Integer.parseInt(reserveday);
 						if(rday == 0) {
 							when();
+							return;
 						}else if(rday<1||rday>cp.lastDay) {
 							System.out.println("범위를 초과하였습니다.");
 							reserveday = "";
@@ -114,6 +115,7 @@ public class ReserveView {
 						year = Integer.parseInt(yearnum);
 						if(year == 0) {
 							when();
+							return;
 						}else if(Pattern.matches(reg, yearnum)){
 							
 							
@@ -143,6 +145,7 @@ public class ReserveView {
 						
 						if(month == 0) {
 							when();
+							return;
 						}else if(month<1||month>12) {
 							System.out.println("1 ~ 12월 안의 숫자로 입력해 주세요");
 							monthnum = "";
@@ -179,6 +182,7 @@ public class ReserveView {
 						rday = Integer.parseInt(reserveday);
 						if(rday == 0) {
 							when();
+							return;
 						}else if(rday<1||rday>cp.lastDay) {
 							System.out.println("범위를 초과하였습니다.");
 							reserveday = "";
@@ -242,6 +246,7 @@ public class ReserveView {
 						year = Integer.parseInt(yearnum);
 						if(year == 0) {
 							when();
+							return;
 						}else if(Pattern.matches(reg, yearnum)){
 							
 							
@@ -271,6 +276,7 @@ public class ReserveView {
 						
 						if(month == 0) {
 							when();
+							return;
 						}else if(month<1||month>12) {
 							System.out.println("1 ~ 12월 안의 숫자로 입력해 주세요");
 							monthnum = "";
@@ -354,6 +360,7 @@ public class ReserveView {
 			}else {
 				System.out.println("번호 확인후 입력해 주세요");
 				when();
+				return;
 			}
 			
 			
@@ -367,6 +374,7 @@ public class ReserveView {
 		}else {
 			System.out.println("숫자를 입력해 주세요");
 			when(); 
+			return;
 		}
 	
 	}
@@ -390,11 +398,13 @@ public class ReserveView {
 				}else if(rtime < 10 || rtime >18) {
 					System.out.println("[10]시 에서 [18]시 사이의 값을 입력해 주세요");
 					reserve(year, month, day);
+					return;
 				}
 				
 			}else {
 				System.out.println("숫자를 입력해주세요");
 				reserve(year, month, day);
+				return;
 			}
 			
 			System.out.print("예약할 테이블을 입력해주세요(ex 3) : ");
@@ -406,10 +416,12 @@ public class ReserveView {
 				}else if(rtable <1 || rtable > 8) {
 					System.out.println("[1]번 에서 [8]번 테이블을 입력해 주세요");
 					reserve(year, month, day);
+					return;
 				}
 			}else {
 				System.out.println("숫자를 입력해 주세요");
 				reserve(year, month, day);
+				return;
 			}
 			
 			
@@ -442,9 +454,11 @@ public class ReserveView {
 			if(result == 1) {
 				System.out.println("예약이 완료 되었습니다.");
 				reserve(year, month, day);
+				return;
 			}else {
 				System.out.println("예약과정중 오류가 발생하였습니다");
 				reserve(year, month, day);
+				return;
 			}
 			
 			
@@ -473,11 +487,13 @@ public class ReserveView {
 				}else if(ctime < 10 || ctime >18) {
 					System.out.println("[10]시 에서 [18]시 사이의 값을 입력해 주세요");
 					cancel(year, month, day);
+					return;
 				}
 				
 			}else {
 				System.out.println("숫자를 입력해주세요");
 				cancel(year, month, day);
+				return;
 			}
 			
 			System.out.print("취소할 테이블을 입력해주세요(ex 3) : ");
@@ -489,10 +505,12 @@ public class ReserveView {
 				}else if(ctable <1 || ctable > 8) {
 					System.out.println("[1]번 에서 [8]번 테이블을 입력해 주세요");
 					cancel(year, month, day);
+					return;
 				}
 			}else {
 				System.out.println("숫자를 입력해 주세요");
 				cancel(year, month, day);
+				return;
 			}
 			
 			
@@ -525,9 +543,11 @@ public class ReserveView {
 			if(result == 1) {
 				System.out.println("취소가 완료 되었습니다.");
 				cancel(year, month, day);
+				return;
 			}else {
 				System.out.println("취소과정중 오류가 발생하였습니다");
 				cancel(year,month,day);
+				return;
 			}
 			
 			

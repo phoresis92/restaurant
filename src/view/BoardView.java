@@ -44,6 +44,7 @@ public class BoardView {
 		} else {
 			System.out.println("번호를 입력해주세요");
 			start();
+			return;
 		}
 		System.out.println("--------------------------------------------");
 
@@ -62,13 +63,16 @@ public class BoardView {
 
 					showlist();
 					start();
+					return;
 				}
 				dao.selectBoard(pagenum);
 				start();
+				return;
 			} else {
 				System.out.println("숫자를 입력해주세요");
 				showlist();
 				start();
+				return;
 			}
 
 		} else if (select == 2) {
@@ -82,14 +86,17 @@ public class BoardView {
 				if(seq < 1 || seq >dao.maxseq()) {
 					System.out.println("범위를 초과 했습니다. [ 1 ~ "+dao.maxseq()+" ]");
 					start();
+					return;
 				}else {
 					dao.searchSeq(seq);
 					dao.viewcountup(seq);
 					start();
+					return;
 				}
 			}else {
 				System.out.println("숫자를 입력해 주세요");
 				start();
+				return;
 			}
 			
 
@@ -124,12 +131,14 @@ public class BoardView {
 
 								showlist();
 								start();
+								return;
 							} else {
 								System.out.println("입력 도중 오류가 발생하였습니다.");
 							}
 						} else if (yorn.equalsIgnoreCase("N")) {
 							showlist();
 							start();
+							return;
 						}
 					} else {
 						System.out.println("Y 또는 N을 입력해 주세요");
@@ -142,6 +151,7 @@ public class BoardView {
 
 				showlist();
 				start();
+				return;
 			}
 
 		} else if (select == 4) {
@@ -163,6 +173,7 @@ public class BoardView {
 						System.out.println("찾으시는 검색 결과가 없습니다.");
 					}
 					start();
+					return;
 				}else if(search == 2) {
 					System.out.print("검색할 내용을 입력해 주세요 : ");
 					String value = sc.nextLine();
@@ -171,6 +182,7 @@ public class BoardView {
 					}
 					
 					start();
+					return;
 				}else if(search == 3) {
 					System.out.println("--------검색할 조건을 입력해 주세요--------");
 					System.out.print(" 제목| 내용 | 메뉴 | 작성자 | 조회수 | 작성일(ex>18/11/19) : ");
@@ -195,6 +207,7 @@ public class BoardView {
 					}else {
 						System.out.println("다시 확인후 입력해 주세요");
 						start();
+						return;
 					}
 					System.out.print("검색할 내용을 입력해 주세요 : ");
 					String value = sc.nextLine();
@@ -204,13 +217,15 @@ public class BoardView {
 						System.out.println("검색 결과가 없습니다.");
 					}
 					start();
-					
+					return;
 				}else if(search == 4) {
 					showlist();
 					start();
+					return;
 				}else {
 					System.out.println("번호를 확인해주세요");
 					start();
+					return;
 				}
 			
 			
@@ -218,6 +233,7 @@ public class BoardView {
 				System.out.println("숫자를 입력해 주세요.");
 				showlist();
 				start();
+				return;
 			}
 			
 			
@@ -283,12 +299,14 @@ public class BoardView {
 								
 								showlist();
 								start();
+								return;
 							} else {
 								System.out.println("입력 도중 오류가 발생하였습니다.");
 							}
 						} else if (yorn.equalsIgnoreCase("N")) {
 							showlist();
 							start();
+							return;
 						}
 					} else {
 						System.out.println("Y 또는 N을 입력해 주세요");
@@ -302,6 +320,7 @@ public class BoardView {
 
 					showlist();
 					start();
+					return;
 				}
 				
 			}else {
@@ -310,6 +329,7 @@ public class BoardView {
 
 				showlist();
 				start();
+				return;
 			}
 			
 
@@ -325,6 +345,7 @@ public class BoardView {
 				int cnt = dao.searchMy(mvo.getSeq());
 				
 				if(cnt == 0) {
+					System.out.println("내 게시물이 없습니다.");
 					return;
 				}
 				String number = "";
@@ -334,6 +355,13 @@ public class BoardView {
 					number = sc.nextLine();
 					if(Static.isInt(number)) {
 						num = Integer.parseInt(number);
+						
+						if(num == 0) {
+							showlist();
+							start();
+							return;
+						}
+						
 					}else {
 						System.out.println("숫자를 입력해 주세요");
 						
@@ -364,12 +392,15 @@ public class BoardView {
 								
 								showlist();
 								start();
+								return;
 							} else {
 								System.out.println("입력 도중 오류가 발생하였습니다.");
+								return;
 							}
 						} else if (yorn.equalsIgnoreCase("N")) {
 							showlist();
 							start();
+							return;
 						}
 					} else {
 						System.out.println("Y 또는 N을 입력해 주세요");
@@ -390,7 +421,7 @@ public class BoardView {
 						System.out.println("번호를 확인하고 입력해 주세요");
 						showlist();
 						start();
-						
+						return;
 					}
 				}
 				
@@ -400,6 +431,7 @@ public class BoardView {
 
 				showlist();
 				start();
+				return;
 			}
 				
 				
@@ -407,6 +439,7 @@ public class BoardView {
 		} else {
 			System.out.println("번호를 확인해주세요");
 			start();
+			return;
 		}
 	}// start method end
 
