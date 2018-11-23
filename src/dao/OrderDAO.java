@@ -289,9 +289,8 @@ public class OrderDAO {
 				totalpay += price*count;
 			}
 			
+			
 
-			
-			
 			
 			String total = Integer.toString(totalpay);
 			
@@ -318,7 +317,7 @@ public class OrderDAO {
 			try {
 				con.close(); // 상황에 따른 문제 / 자바의 문제가 아니다
 			} catch (SQLException e) {
-				e.printStackTrace();
+
 			}
 			// System.out.println("연결해제성공");
 		}

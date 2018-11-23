@@ -1,5 +1,4 @@
-create user r2018 identified by 1234;
-grant resource, connect to r2018;
+
 
 
 
@@ -1537,3 +1536,5 @@ insert into december_31 values(5,0,0,0,0,0,0,0,0,0);
 insert into december_31 values(6,0,37,0,0,3,0,0,0,0);
 insert into december_31 values(7,0,0,0,28,14,0,0,0,0);
 insert into december_31 values(8,0,7,0,32,0,11,1,0,0);
+
+

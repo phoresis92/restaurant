@@ -88,7 +88,7 @@ public void logout() {
 				String member_name = "";
 				while(member_name.equals("")) {
 					
-					System.out.print("이름 입력(3자리 이상 5자리 이하) : ");
+					System.out.print("[0]입력시 취소)이름 입력(3자리 이상 5자리 이하) : ");
 					member_name = sc.nextLine().toLowerCase();
 					
 					if(member_name.equals("0")) {
@@ -113,7 +113,7 @@ public void logout() {
 				
 				String phone = "";
 				while(phone.equals("")) {
-					System.out.print("전화번호 입력([-]를 입력해주세요): ");
+					System.out.print("[0]입력시 취소)전화번호 입력(- 포함): ");
 					phone = sc.nextLine();
 					String reg = "[0-9]{2,3}-\\d{3,4}-[0-9]{3,4}";
 					

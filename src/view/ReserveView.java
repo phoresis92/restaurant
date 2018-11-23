@@ -182,7 +182,7 @@ public class ReserveView {
 						if(rday == 0) {
 							when();
 							return;
-						}else if(rday<1||rday>cp.lastDay) {
+						}else if(rday<1||rday>lastday(year, month)) {
 							System.out.println("범위를 초과하였습니다.");
 							reserveday = "";
 						}else {
@@ -315,7 +315,7 @@ public class ReserveView {
 						if(rday == 0) {
 							when();
 							return;
-						}else if(rday<1||rday>cp.lastDay) {
+						}else if(rday<1||rday>lastday(year, month)) {
 							System.out.println("범위를 초과하였습니다.");
 							reserveday = "";
 						}else {
@@ -379,6 +379,11 @@ public class ReserveView {
 	}
 	
 	
+	public int lastday(int year, int month) {
+		
+		CalendarPrint cp = new CalendarPrint(year,month);
+		return cp.lastDay;
+	}
 	
 	
 	

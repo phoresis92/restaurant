@@ -77,11 +77,18 @@ public class CalendarPrint {
 		System.out.println("----------------------");
 
 		Calendar cal = Calendar.getInstance();
+		
 		cal.set(year, month, 1);
 		
+		int ryear = cal.get(Calendar.YEAR);
+		int rmonth = cal.get(Calendar.MONTH);
 		
+		if(rmonth== 0) {
+			rmonth = 12;
+			ryear = ryear-1;
+		}
 		
-		System.out.println("      "+cal.get(Calendar.YEAR)+"년 "+cal.get(Calendar.MONTH)+"월");
+		System.out.println("      "+ryear+"년 "+rmonth+"월");
 		
 		/*cal.set(2017, 3, 1);
 		System.out.println(cal.getTime());

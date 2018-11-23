@@ -9,7 +9,7 @@ import main.Administer;
 import main.Static;
 
 public class AdminOrderView {
-	AdminOrderDAO aov = new AdminOrderDAO();
+	AdminOrderDAO aodao = new AdminOrderDAO();
 	Scanner sc = new Scanner(System.in);
 	Administer admin = new Administer();
 
@@ -30,8 +30,8 @@ public void allorder() {
 					return;
 				}else if(menu.equals("1")) {
 					
-					HashMap<Integer,String[]> list = aov.allist();
-					int pagesize = 5; // 페이지 게시물 개수
+					HashMap<Integer,String[]> list = aodao.allist();
+					int pagesize = 10; // 페이지 게시물 개수
 					String a = "";
 					String b = "";
 					String c = "";
@@ -160,7 +160,7 @@ public void allorder() {
 	public void cancelorder() {
 		
 		
-		HashMap<Integer,String[]> list = aov.showlist();
+		HashMap<Integer,String[]> list = aodao.showlist();
 			
 			int pagesize = 5; // 페이지 게시물 개수
 			String a = "";
@@ -222,7 +222,7 @@ public void allorder() {
 										
 										
 										
-										int result = aov.deleteorder(list.get(choi)[0]);
+										int result = aodao.deleteorder(list.get(choi)[0]);
 										if(result == 1) {
 											System.out.println("결제 취소가 완료되었습니다.");
 										}else {

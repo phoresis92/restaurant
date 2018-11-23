@@ -39,9 +39,7 @@ public class AdminReserveView {
 		CalendarPrint cp = new CalendarPrint(cal.get(Calendar.YEAR),cal.get(Calendar.MONTH)+1);
 		cp.printhismonth(cal.get(Calendar.YEAR),cal.get(Calendar.MONTH)+1);
 		cp.printCal();
-		
-		System.out.println("구현 범위 [ 2018/11월]");
-		System.out.println("구현 범위 [ 2019/1월]");
+		System.out.println("구현 범위 [ 2018/11월 ~ 2019/1월]");
 		System.out.println("1. 일자 선택");
 		System.out.println("2. 다른 연도, 다른 월 선택하기");
 		System.out.println("3. 예약 취소하기");
@@ -171,7 +169,7 @@ public class AdminReserveView {
 				CalendarPrint calp = new CalendarPrint(year, month);
 				calp.printhismonth(year,month);
 				calp.printCal();
-				
+
 				
 				
 				
@@ -188,7 +186,7 @@ public class AdminReserveView {
 						if(rday == 0) {
 							when();
 							return;
-						}else if(rday<1||rday>cp.lastDay) {
+						}else if(rday<1||rday>lastday(year,month)) {
 							System.out.println("범위를 초과하였습니다.");
 							reserveday = "";
 						}else {
@@ -321,7 +319,7 @@ public class AdminReserveView {
 						if(rday == 0) {
 							when();
 							return;
-						}else if(rday<1||rday>cp.lastDay) {
+						}else if(rday<1||rday>lastday(year, month)) {
 							System.out.println("범위를 초과하였습니다.");
 							reserveday = "";
 						}else {
@@ -386,7 +384,11 @@ public class AdminReserveView {
 	}
 	
 	
-	
+	public int lastday(int year, int month) {
+		
+		CalendarPrint cp = new CalendarPrint(year,month);
+		return cp.lastDay;
+	}
 	
 	
 	
@@ -598,12 +600,15 @@ public class AdminReserveView {
 		String[][] arr = new String[8][9];
 		
 		MemberVO mvo = null;
-
+		
+		try {
 		Set<MemberVO> set = login.keySet();
 		for(MemberVO vo : set) {
 			mvo = vo;
 		}
-		
+		}catch(Exception e) {
+			System.out.println("다시한번 입력해주세요");
+		}
 				
 		ArrayList<int[]> list = dao.drawTable(year,month,day);
 		

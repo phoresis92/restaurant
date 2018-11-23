@@ -1,7 +1,4 @@
 
-create user r2019 identified by 1234;
-grant resource, connect to r2019;
-
 
 
 create table january_1(

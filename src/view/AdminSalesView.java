@@ -1,12 +1,15 @@
 package view;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
+
+import javax.swing.SwingUtilities;
 
 import dao.AdminSalesDAO;
 import main.Administer;
+import main.GraphPanel;
 import main.Static;
 
 public class AdminSalesView {
@@ -45,7 +48,7 @@ public class AdminSalesView {
 		int dec2 = map.get(24);
 		
 		
-		int min = 200*1000;
+		int min = 200000;
 		
 		
 		String[][] sar = new String[24][25];
@@ -76,6 +79,67 @@ public class AdminSalesView {
 		arinsert(min,dec1,sar,22);
 		arinsert(min,dec2,sar,23);
 
+		 List<Double> scores = new ArrayList<>();
+	       
+	        AdminSalesDAO dao = new AdminSalesDAO();
+	        HashMap<Integer,Integer> map2 = dao.monthsalescal();
+	    	
+
+	        
+	        
+			double jan12 = map2.get(1);
+			double jan22 = map2.get(2);
+			double feb12 = map2.get(3);
+			double feb22 = map2.get(4);
+			double mar12 = map2.get(5);
+			double mar22 = map2.get(6);
+			double apr12 = map2.get(7);
+			double apr22 = map2.get(8);
+			double may12 = map2.get(9);
+			double may22 = map2.get(10);
+			double jun12 = map2.get(11);
+			double jun22 = map2.get(12);
+			double jul12 = map2.get(13);
+			double jul22 = map2.get(14);
+			double aug12 = map2.get(15);
+			double aug22 = map2.get(16);
+			double sep12 = map2.get(17);
+			double sep22 = map2.get(18);
+			double oct12 = map2.get(19);
+			double oct22 = map2.get(20);
+			double nov12 = map2.get(21);
+			double nov22 = map2.get(22);
+			double dec12 = map2.get(23);
+			double dec22 = map2.get(24);
+			
+			scores.add(jan12);
+			scores.add(jan22);
+			scores.add(feb12);
+			scores.add(feb22);
+			scores.add(mar12);
+			scores.add(mar22);
+			scores.add(apr12);
+			scores.add(apr22);
+			scores.add(may12);
+			scores.add(may22);
+			scores.add(jun12);
+			scores.add(jun22);
+			scores.add(jul12);
+			scores.add(jul22);
+			scores.add(aug12);
+			scores.add(aug22);
+			scores.add(sep12);
+			scores.add(sep22);
+			scores.add(oct12);
+			scores.add(oct22);
+			scores.add(nov12);
+			scores.add(nov22);
+			scores.add(dec12);
+			scores.add(dec22);
+			
+			GraphPanel gp = new GraphPanel(scores);
+			String[] a = new String[3];
+			gp.main(a);
 		
 		for(int k = 23 ; k >= 0 ; k--) {
 			sar[k][24] = "|"+((24-k)*20)+"만원";
@@ -145,14 +209,14 @@ public class AdminSalesView {
 	public void arinsert(int min, int month, String[][] sar, int where) {
 		int max = (int)Math.floor(month/min);
 		if(month == 0) {
-			max = 24;
+			max = 0;
 		}
 		
 		if(month>4800000) {
-			max=0;
+			max=24;
 		}
 		
-		for(int k = 23 ; k>=max ; k--) {
+		for(int k = 23 ; k>=24-max ; k--) {
 			
 			sar[k][where] = " @ ";
 		}
