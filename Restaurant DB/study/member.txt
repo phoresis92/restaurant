@@ -1,0 +1,64 @@
+create table member(
+member_seq number(5) constraint member_seq_pk primary key,
+member_id varchar2(15) constraint member_id_nnuk not null unique,
+pw number(4) constraint member_pw_nn not null,
+member_name varchar2(15) constraint member_name_nn not null,
+phone varchar2(15) constraint member_phone_uk unique,
+email varchar2(20) ,
+administer number(1) constraint member_administer_ck check(administer = 1 or administer = 0));
+
+
+insert into member values(1, 'system', 1234, '관리자', '010-0000-0000', 'admin@restaurant.com', 1);
+
+insert into member values((select max(member_seq) from member)+1, '1000u', 1234, '남천우', '010-8473-9284', '1000u@naver.com', 0);
+insert into member values((select max(member_seq) from member)+1, 'kyoung', 1234, '김영동', '010-7412-8523', 'kyoung@naver.com', 0);
+insert into member values((select max(member_seq) from member)+1, 'kdahye', 7560, '김다혜', '010-8633-7560', 'kdahye@daum.net', 0);
+insert into member values((select max(member_seq) from member)+1, 'chang', 1048, '고창석', '010-9348-1028', 'chang@kitri.net', 0);
+insert into member values((select max(member_seq) from member)+1, 'kuku', 1275, '김형규', '010-2053-1285', 'kuku@kitri.org', 0);
+insert into member values((select max(member_seq) from member)+1, 'thebon', 3454, '백종원', '010-8937-3404', 'thebon@coco.co.kr', 0);
+insert into member values((select max(member_seq) from member)+1, 'hahaha', 8722, '우정하', '010-4860-8422', 'hahaha@daum.net', 0);
+insert into member values((select max(member_seq) from member)+1, 'siwon', 1184, '임시원', '010-3854-1284', 'siwon@gmail.net', 0);
+insert into member values((select max(member_seq) from member)+1, 'dough', 1592, '장도현', '010-1028-3943', 'dough@naver.com', 0);
+insert into member values((select max(member_seq) from member)+1, 'yunkang', 1900, '윤강현', '010-9653-1942', 'yunkang@coco.co.kr', 0);
+
+insert into member values((select max(member_seq) from member)+1, 'rumin', 9222, '류민희', '010-2943-9245', 'rumin@papa.com', 0);
+insert into member values((select max(member_seq) from member)+1, 'minsu', 1963, '장민수', '010-4295-1924', 'minsu@kitri.net', 0);
+insert into member values((select max(member_seq) from member)+1, 'ksuji1004', 1284, '김수지', '010-1470-2580', 'ksuj1004@naver.com', 0);
+insert into member values((select max(member_seq) from member)+1, 'lyoonh', 7580, '이윤하', '010-2583-3690', 'lyoonh@naver.com', 0);
+insert into member values((select max(member_seq) from member)+1, 'ychangs', 9549, '윤창수', '010-3216-6549', 'lyoonh@gmail.com', 0);
+insert into member values((select max(member_seq) from member)+1, 'lsorrr', 8547, '임소라', '010-4789-1547', 'lsorrr@daum.net', 0);
+insert into member values((select max(member_seq) from member)+1, 'kminh', 2554, '권민희', '010-5446-6554', 'kminh@daum.net', 0);
+insert into member values((select max(member_seq) from member)+1, 'kjihee77', 3543, '김지희', '010-6478-6543', 'kjihee77@daum.net', 0);
+insert into member values((select max(member_seq) from member)+1, 'kkuman', 5123, '김규만', '010-7412-7123', 'kkuman@nate.com', 0);
+insert into member values((select max(member_seq) from member)+1, 'uhany2da', 6754, '우한영', '010-6478-67543', 'uhany2da@daum.net', 0);
+
+insert into member values((select max(member_seq) from member)+1, 'leejunk', 4121, '이준혁', '010-8111-2121', 'leejunk@naver.com', 0);
+insert into member values((select max(member_seq) from member)+1, 'miaesang', 2250, '김미애', '010-1201-2230', 'miaesang@naver.com', 0);
+insert into member values((select max(member_seq) from member)+1, 'jjung2', 3937, '정정희', '010-2283-3376', 'jjung2@daum.net', 0);
+insert into member values((select max(member_seq) from member)+1, '2suksuk', 4565, '이석림', '010-3384-4658', '2suksuk@gmail.com', 0);
+insert into member values((select max(member_seq) from member)+1, 'haryung7', 5531, '이하령', '010-4751-5531', 'haryung7@nate.com', 0);
+insert into member values((select max(member_seq) from member)+1, 'mijunssam', 6349, '서미준', '010-5531-6691', 'mijunssam@daum.net', 0);
+insert into member values((select max(member_seq) from member)+1, 'heefather', 6713, '윤찬현', '010-6713-5816', 'heefather@daum.net', 0);
+insert into member values((select max(member_seq) from member)+1, 'eng8282', 7514, '허석우', '016-712-7714', 'eng8282@daum.net', 0);
+insert into member values((select max(member_seq) from member)+1, 'minwife9', 7613, '최주영', '010-7613-7212', 'minwife9@naver.com', 0);
+insert into member values((select max(member_seq) from member)+1, 'bujada', 8803, '이민영', '010-8986-9090', 'bujada@gmail.com', 0);
+
+insert into member values((select max(member_seq) from member)+1, 'yangyang', 2801, '양은아', '010-1928-2809', 'yangyang@gmail.com', 0);
+insert into member values((select max(member_seq) from member)+1, 'dam9090', 3213, '정인석', '010-2876-3253', 'dam9090@daum.net', 0);
+insert into member values((select max(member_seq) from member)+1, 'math1137', 1237, '공진도', '010-3796-1137', 'math1137@gmail.com', 0);
+insert into member values((select max(member_seq) from member)+1, 'bangjs', 4126, '방지숙', '010-4678-4326', 'bangjs@gmail.com', 0);
+insert into member values((select max(member_seq) from member)+1, 'easyluv', 8213, '김철은', '010-5512-8283', 'easyluv@naver.com', 0);
+insert into member values((select max(member_seq) from member)+1, 'dongaline', 7721, '채지연', '019-643-7727', 'dongaline@naver.com', 0);
+insert into member values((select max(member_seq) from member)+1, 'healthyb', 8186, '최용범', '010-7373-8986', 'healthyb@gmail.com', 0);
+insert into member values((select max(member_seq) from member)+1, 'dadalove', 9123, '배경운', '010-3376-1123', 'dadalove@gmail.com', 0);
+insert into member values((select max(member_seq) from member)+1, 'sooeuna00', 5005, '한수은', '010-5325-5465', 'sooeuna00@gmail.com', 0);
+insert into member values((select max(member_seq) from member)+1, 'ysc4894', 8914, '윤석찬', '010-4234-4894', 'ysc4894daum.net', 0);
+
+
+
+
+
+
+
+
+

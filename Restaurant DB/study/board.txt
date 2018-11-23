@@ -1,0 +1,46 @@
+create table board(
+seq number(5) constraint board_seq_pk primary key,
+title varchar2(100) constraint board_contents_nn not null,
+contents varchar2(4000) ,
+menu varchar2(50) ,
+writer varchar2(15) constraint board_writer_nn not null,
+writer_seq number(5) constraint board_writer_fk references member(member_seq),
+indate date default sysdate,
+viewcount number(5),
+password number(4));
+
+
+insert into board values(1, '게시판 개설!', '항상 최선을 다하겠습니다! 많이 이용해주세요!', '메뉴', '관리자', 1, '17/01/01', 222, 1234);
+
+insert into board values((select max(seq)+1 from board), '처음 먹어봤는데요..', '넘 맛있는거 아닙니까?', '마라 핫치킨', '우정하', 8, '17/01/06', 213, 8722);
+insert into board values((select max(seq)+1 from board), '사업 번창하시길*^^*', '자주 방문하고싶어요^^', '순살치즐링', '백종원', 7, '17/01/18', 195, 3454);
+insert into board values((select max(seq)+1 from board), '굉장히 빠삭하네요!!', '제곧내', '황금올리브닭다리', '김지희', 19, '17/01/21', 360, 3543);
+insert into board values((select max(seq)+1 from board), '동네 맛집 방문 후기', '웨이팅이 엄청남. 하지만 맛있음', '써프라이드', '장도현', 10, '17/03/14', 276, 1592);
+insert into board values((select max(seq)+1 from board), '매운치킨 중독 됐다', '밤에 자꾸 심하게 생각난다 ', '마라 핫치킨', '권민희', 18, '17/04/04', 260, 2554);
+insert into board values((select max(seq)+1 from board), '★추천 메뉴 리뷰★', '매운치킨 스트레스 받을때 최고', '마라 핫치킨', '김지희', 19, '17/04/12', 237, 3543);
+insert into board values((select max(seq)+1 from board), '여기 체인점인가요?', '압구정에서 본거 같은데', '자메이카 통다리 구이', '우한영', 21, '17/04/13', 211, 6754);
+insert into board values((select max(seq)+1 from board), '이 가게 장점은....', '친절, 청결, 맛', '순살치즐링', '김규만', 20, '17/05/14', 193, 5123);
+insert into board values((select max(seq)+1 from board), '배달은 안되나요???', '배달 좀 해주세요', '황올 왕새우 세트', '임소라', 17, '17/06/06', 257, 8547);
+insert into board values((select max(seq)+1 from board), '메뉴 조합 꿀팁 공유', '역시 치맥이 진리아닙니까', '황금올리브닭다리', '김수지', 14, '17/07/13', 388, 1284);
+
+insert into board values((select max(seq)+1 from board), '양도 많고 치킨도 맛있다', '엄청 배고팠는데..', '자메이카 통다리 구이', '김형규', 6, '17/08/26', 151, 1275);
+insert into board values((select max(seq)+1 from board), '재방문했음. 추천입니당.', '모든 메뉴가 정말 맛있습니다!!', '치킨강정', '윤창수', 16, '17/09/02', 231, 6549);
+insert into board values((select max(seq)+1 from board), '내가 생각한 맛이 아니야..', '기대안하길 잘함', '황금올리브닭다리', '이윤하', 15, '17/09/10', 159, 7580);
+insert into board values((select max(seq)+1 from board), '사장님~ 서비스 부탁드려요', '아시죠?오늘예약 6시', '순살치즐링', '장민수', 13, '17/09/13', 119, 1963);
+insert into board values((select max(seq)+1 from board), '양념이 부족했어요ㅜㅜㅜㅜ', '담엔 넉넉한 양념 부탁!!!', '순살치즐링', '이준혁', 22, '17/10/31', 158, 4121);
+insert into board values((select max(seq)+1 from board), '요청사항 들어주셔서 감삼당', '사장님 친절해요', '황금올리브닭다리', '정정희', 24, '17/11/08', 147, 3937);
+insert into board values((select max(seq)+1 from board), '항상 맛있어서 뭐라 쓸지,', '또또또 맛있었다', '황올 왕새우 세트', '김지희', 19, '17/11/17', 132, 3543);
+insert into board values((select max(seq)+1 from board), '와 인생치킨이네요!!!!!!', '남기고온거 너무너무 아쉬워요', '써프라이드', '윤창수', 16, '17/11/19', 141, 6549);
+insert into board values((select max(seq)+1 from board), '방문했더니 하필 쉬는날..', '완전지대로 허탕쳤음요', '치킨강정', '김미애', 23, '17/11/26', 152, 2250);
+insert into board values((select max(seq)+1 from board), '하..안먹을 수가 없네요..', '배찢어지게 오늘도ㅋ', '마라 핫치킨', '허석우', 29, '17/12/31', 212, 7514);
+
+insert into board values((select max(seq)+1 from board), '굳굳 너무너무 맛나요~~~', '우리 아들래미도 반한 맛', '순살치즐링', '이하령', 26, '18/01/11', 180, 5531);
+insert into board values((select max(seq)+1 from board), '기름기 생각보다 많이없네요', '느끼하지 않고 담백', '써프라이드', '양은아', 32, '18/01/22', 137, 2801);
+insert into board values((select max(seq)+1 from board), '오랜만에 치맥ㅋㅋㅋㅋㅋ', '축구도 틀어주셔서 응원과함께!', '마라 핫치킨', '공진도', 34, '18/02/15', 116, 1237);
+insert into board values((select max(seq)+1 from board), '불금엔 치킨이죵..ㅋㅋㅋ', '늦게까지 영업해서 좋네요~~', '마라 핫치킨', '최용범', 38, '18/02/28', 125, 8186);
+insert into board values((select max(seq)+1 from board), '리뷰 알바생들 쓰셨나???', '그렇게까지 맛있지는 않던데', '써프라이드', '서미준', 27, '18/03/01', 111, 6349);
+insert into board values((select max(seq)+1 from board), '식감도 바삭, 맛도 고소', '담주에 또 갈게요', '자메이카 통다리 구이', '윤찬현', 28, '18/03/12', 107, 6713);
+insert into board values((select max(seq)+1 from board), '무난한 맛 왜 맛집인지 모를', '내입맛엔 그닥이던데', '황올 왕새우 세트', '배경운', 39, '18/04/11', 98, 9123);
+insert into board values((select max(seq)+1 from board), '왜 항상 예약이 차있는지 알겠다', '나도 할거니까', '순살치즐링', '이준혁', 22, '18/05/05', 85, 4121);
+insert into board values((select max(seq)+1 from board), '단짠단짠단짠단짠', '단짠을 제대로 느끼게 해주네요', '마라 핫치킨', '이하령', 26, '18/05/31', 91, 5531);
+insert into board values((select max(seq)+1 from board), '맛있었어요~~~~', '맛 김동이에요 추천박고 갑니당!!!', '순살치즐링', '임소라', 17, '18/06/16', 80, 8547);

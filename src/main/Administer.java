@@ -142,6 +142,7 @@ public class Administer {
 				
 
 				AdminMemberView amv = new AdminMemberView();
+				amv.firstpage();
 				amv.memberlist();
 				
 				

@@ -15,7 +15,7 @@ public class AdminMemberView {
 	
 	public void memberlist() {
 		
-		dao.showmember(1);
+		
 		System.out.print("최대 페이지 : "+dao.totalmempage()+" | 페이지 입력(뒤로가기 -1 | 선택  0): ");
 		String in = sc.nextLine();
 		if(Static.isInt(in)) {
@@ -154,46 +154,7 @@ public class AdminMemberView {
 								}
 							}
 									
-									/*if(dao.selectmem(seq) == seq) {		
-									}else {
-										
-										adminManager();
-									}
-									memberview2( seq);
-									System.out.println("==================================");
-									System.out.println();
-									System.out.println("정말로 삭제하시겠습니까? ");
-									System.out.println();
-									System.out.println("==================================");
-									System.out.print("\t(Y/N)로 입력해 주세요 : ");
-									String yn = sc.nextLine();
-									if(yn.equalsIgnoreCase("y")) {
-										
-										AdminDAO ddao =new AdminDAO();
-										ddao.deleteMember(seq);
-										adminManager();
-										
-										//sc.nextLine();
-									}else if(yn.equalsIgnoreCase("n")) {
-										adminManager();
-									}else {
-										System.out.println("Y/N 로 입력해주세요");
-										adminManager();
-									}
 									
-								}else if(seq==1){
-									System.out.println("회원번호1번은 삭제할 수 없습니다.");
-									adminManager();
-								}else {
-									System.out.println("회원번호가 없습니다.");
-									adminManager();
-								}
-							}else {
-								System.out.println("숫자를 입력해주세요!");
-								adminManager();
-							}
-							
-							return vo;*/
 							
 							
 							
@@ -248,6 +209,15 @@ public class AdminMemberView {
 	}
 	
 
+	public void firstpage() {
+		
+		
+		dao.showmember(1);
+		
+		
+	}
+	
+	
 	
 	
 }

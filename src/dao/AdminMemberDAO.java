@@ -21,7 +21,7 @@ public class AdminMemberDAO {
 			String sql = "select * from(select rownum r, t.* " + " from (select * from member order by member_seq desc) t)"
 					+ " where r >= ? and r <= ?";
 			
-			int boardnum = 5;
+			int boardnum = 10;
 			int start = (page - 1) * boardnum + 1;
 			int end = page * boardnum;
 			
@@ -81,7 +81,6 @@ public class AdminMemberDAO {
 			count = rs.getDouble("count(*)");
 
 			result = (int) Math.ceil(count / boardnum);
-
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

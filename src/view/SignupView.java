@@ -130,7 +130,7 @@ public class SignupView {
 		if(result ==1) {
 			System.out.println("회원가입이 완료되었습니다.");
 		}else {
-			System.out.println("회원가입 오류가 발생");
+			System.out.println("일치하는 전화번호가 있습니다. 다른 전화번호를 입력해 주세요");
 		}
 
 	}

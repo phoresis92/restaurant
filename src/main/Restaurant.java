@@ -146,11 +146,15 @@ public class Restaurant {
 					
 				}
 			}else if(select == 8) {
+				try {
 				if(login == null || login.size() == 0) {
 					SignupView sv = new SignupView();
 					sv.input();
 				}else {
 					System.out.println("\t현재 [ "+mvo.getMember_id()+" ] 로 로그인 되어 있습니다.");
+					
+				}
+				}catch(Exception e) {
 					
 				}
 			}else if(select == 9) {

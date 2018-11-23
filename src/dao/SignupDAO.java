@@ -29,15 +29,12 @@ public class SignupDAO {
 			
 
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			
 		} finally {
 			try {
 				con.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
 			}
 		}
 		return result;

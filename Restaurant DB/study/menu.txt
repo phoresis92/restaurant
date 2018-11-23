@@ -1,0 +1,53 @@
+create table menu(
+menu_id number(5) constraint mmenu_id_pk primary key,
+menu_name varchar2(50) constraint mmenu_name_nn not null,
+price number(10) constraint mmenu_price_nn not null,
+commen varchar2(300) );
+
+insert into menu values(1, '황금올리브닭다리', 17500, '육즙 가득 쫄깃함. 최고의 닭다리만을 모아 씹는 맛부터 다르다!');
+insert into menu values(2, '자메이카 통다리 구이', 22000, '깊은 저크 소스의 풍미를 즐길 수 있는 자메이카풍의 별미 요리');
+insert into menu values(3, '황올 왕새우 세트', 19000, ' 왕새우에 고소한 빵가루를 입혀 바삭하게 튀겨내 구성한 세트메뉴');
+insert into menu values(4, '마라 핫치킨', 14500, '바삭바삭한 치킨과 칼칼하게 매운 마라소스의 조화');
+insert into menu values(5, '순살치즐링', 19900, '마스카포네치즈와 체다치즈가 잘 조화된 풍부한 맛의 치즈 파우더로 듬뿍듬뿍 버무린 치킨');
+insert into menu values(6, '치킨강정', 12500, ' 강정소스를 고소하고 바삭한 치킨에듬뿍 버무린 매콤달콤! 단짠의 정석');
+insert into menu values(7, '매달구윙', 17500, '콜라겐이 풍부한 닭날개를 매콤하고 달콤하게 구워낸 특별한 구이치킨');
+insert into menu values(8, '써프라이드', 19000, '로스팅 어니언의 깊고 풍부한 소스에 후레이크를 뿌려 아삭하게 씹히는 식감과 달콤매콤한 맛의 조화');
+
+create sequence main_menu_seq
+start with 9
+maxvalue 1000
+cycle;
+
+
+insert into menu values (1001, '케이준 감자', 4000, '바삭한 감자');
+insert into menu values (1002, '해시브라운', 3000, '포슬포슬 해요');
+insert into menu values (1003, '치즈스틱', 2000, '죽 늘어나는 치즈');
+insert into menu values (1004, '베이컨 치즈 후라이', 5900, '고소한 베이컨 가득');
+insert into menu values (1005, '콥샐러드', 7900, '알찬 구성의 샐러드');
+
+
+create sequence side_menu_seq
+start with 1006
+maxvalue 1500
+cycle;
+
+
+
+insert into menu values (1501, '생맥주', 3000, '시원한 생맥');
+insert into menu values (1502, '병맥주', 4000, '병째 드세요!');
+insert into menu values (1503, '소주', 4000, '솨주좋아');
+insert into menu values (1504, '음료수', 1500, '환타,콜라,사이다');
+insert into menu values (1505, '에이드', 4000, '청포도, 자몽, 오렌지');
+
+
+create sequence drink_menu_seq
+start with 1506
+maxvalue 2000
+cycle;
+
+
+
+
+
+
+
