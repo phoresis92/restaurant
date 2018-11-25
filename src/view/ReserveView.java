@@ -633,7 +633,6 @@ public class ReserveView {
 				k = "["+"*"+"]";
 			}
 			arr[tabn][i] = k;
-			
 		}
 	
 		

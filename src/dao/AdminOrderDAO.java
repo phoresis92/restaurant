@@ -203,7 +203,6 @@ public class AdminOrderDAO {
 			pay = new HashMap<Integer,String[]>();
 			while(set.next()) {
 				String pay_seq = set.getString("pay_seq");
-
 			
 				OrderDAO orderdao = new OrderDAO();
 				String[] output = orderdao.billist(pay_seq);

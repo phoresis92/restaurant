@@ -48,7 +48,7 @@ public class AdminSalesView {
 		int dec2 = map.get(24);
 		
 		
-		int min = 200000;
+		int min = 200*1000;
 		
 		
 		String[][] sar = new String[24][25];
@@ -191,7 +191,6 @@ public class AdminSalesView {
 					System.out.println();
 				}else if(menu.equals("2")) {
 					System.out.println();
-					new Administer().adminMain();
 					return;
 				}else {
 					System.out.println("번호를 확인후 입력해주세요");
@@ -295,13 +294,17 @@ public class AdminSalesView {
 	public void kindsales() {
 		
 		
-		int[] arr = dao.kindsalescal();
+		ArrayList<int[]> arlist = dao.kindsalescal();
 		
-		System.out.println("11월");
-		System.out.println("메인메뉴 : "+(arr[0]/1000)+"천원");
-		System.out.println("사이드메뉴 : "+(arr[1]/1000)+"천원");
-		System.out.println("드링크메뉴 : "+(arr[2]/1000)+"천원");
-		
+		for(int i = 0 ; i<=11 ; i++) {
+			
+			int[] arr = arlist.get(i);
+			
+			System.out.println(i+1+"월");
+			System.out.println("메인메뉴 : "+(arr[0]/1000)+"천원");
+			System.out.println("사이드메뉴 : "+(arr[1]/1000)+"천원");
+			System.out.println("드링크메뉴 : "+(arr[2]/1000)+"천원");
+		}
 		
 	}
 	

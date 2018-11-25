@@ -74,24 +74,24 @@ public class Orderview {
 	}
 	
 	
-	public void bill() {
+	public void bill() { //결제내역보기,취소하기
 		
 		MemberVO memvo = null ;
 		Set<MemberVO> set = login.keySet();
 		for(MemberVO b : set) {
 			memvo = b;
 		}
-		HashMap<Integer,String[]> list = dao.transaction(memvo);
+		HashMap<Integer,String[]> list = dao.transaction(memvo); // 결제내역 가져오기
 		String num = "";
 		while(num.equals("")) {
-			int pagesize = 5; // 페이지 게시물 개수
+			int pagesize = 10; // 페이지 게시물 개수
 			String a = "";
 			String b = "";
 			String c = "";
 			String d = "";
 			try {
 			System.out.println("----------------------------------------------");
-			for(int i = 1 ; i <= 5 ; i++) {
+			for(int i = 1 ; i <= pagesize; i++) {
 				a = list.get(i)[0];
 				b = list.get(i)[1];
 				c = list.get(i)[2];
@@ -130,7 +130,7 @@ public class Orderview {
 								
 								
 								
-								dao.showbill(list.get(choi)[0]);
+								dao.showbill(list.get(choi)[0]/*결제번호*/);
 								
 								System.out.println("결제를 취소하시겠습니까?");
 								System.out.print("(Y/N) : ");
@@ -278,7 +278,6 @@ public class Orderview {
 						
 						
 						
-						MenuVO menuvo;
 						
 						MemberVO memvo = null ;
 						Set<MemberVO> set = login.keySet();
@@ -290,6 +289,9 @@ public class Orderview {
 						
 						String pay_seq = memvo.getSeq()+""+cal.get(Calendar.DATE)+""+cal.get(Calendar.HOUR_OF_DAY)+""+cal.get(Calendar.MINUTE)+""+Math.floor(cal.get(Calendar.MILLISECOND));
 					
+						
+						int count = 0;
+						MenuVO menuvo;
 						for(MenuVO a : basketlist) {
 							int menu_seq = 0;
 							int menu_count = 0;
@@ -316,19 +318,26 @@ public class Orderview {
 						
 						
 						
-						
 						int result = dao.charge(pay_seq, member_seq, menu_seq, menu_count, month , kind);
 						if(result == 1) {
+							count++;
+						}
+						
+						}
+						
+						if (basketlist.size() == count) {
+							
 							System.out.println("구매가 정상처리 되었습니다");
 							basketlist.clear();
 							return;
 						}else {
-							System.out.println("구매도중 오류가 발생 하였습니다.");
-							
+						System.out.println("구매도중 오류가 발생 하였습니다.");
+						
 						}
 						
 						
-						}
+						
+						
 						
 						
 						

@@ -85,7 +85,7 @@ public class OrderDAO {
 			String sql = "select distinct pay_seq, paydate from salary_11 \r\n" + 
 					"where member_seq = ? order by paydate desc";
 
-			PreparedStatement st = con.prepareStatement(sql);
+			PreparedStatement st = con.prepareStatement(sql); 
 			st.setInt(1, memvo.getSeq());
 			
 			ResultSet set = st.executeQuery();
@@ -94,7 +94,7 @@ public class OrderDAO {
 			pay = new HashMap<Integer,String[]>();
 			System.out.println("--------------------------------------------------------");
 			while(set.next()) {
-				String pay_seq = set.getString("pay_seq");
+				String pay_seq = set.getString("pay_seq"); //주문번호 가져오기
 
 			
 
@@ -188,7 +188,7 @@ public class OrderDAO {
 			String member_name= "";
 			ResultSet set = st.executeQuery();
 			
-			int cnt = 0;
+			int cnt = 1;
 			
 			while(set.next()) {
 				String menu_name = set.getString("menu_name");
@@ -198,7 +198,7 @@ public class OrderDAO {
 				member_name = set.getString("member_name");
 				System.out.println("   "+cnt+") "+menu_name+"  "+price+"  "+count+"  "+price*count);
 				totalpay += price*count;
-			
+				cnt++;
 			}
 			
 			System.out.println();
@@ -289,6 +289,9 @@ public class OrderDAO {
 				totalpay += price*count;
 			}
 			
+			/*System.out.println(totalpay);
+			System.out.println(member_id);
+			System.out.println(paydate);*/
 			
 
 			
@@ -308,9 +311,10 @@ public class OrderDAO {
 		} catch (SQLException e) {
 			try {
 				con.rollback();
+				e.printStackTrace();
 			} catch (SQLException e1) {
+				e1.printStackTrace();
 			}
-			e.printStackTrace();
 
 		} finally {
 

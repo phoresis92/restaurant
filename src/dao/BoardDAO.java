@@ -52,7 +52,7 @@ public class BoardDAO {
 	
 	
 	public int totalpage() {
-		int boardnum = 5;
+		int boardnum = 10;
 		Double count = 0D;
 		int result = 0;
 		Connection con = null;
@@ -101,7 +101,7 @@ public class BoardDAO {
 			String sql = "select * from(select rownum r, t.* " + " from (select * from board order by seq desc) t)"
 					+ " where r >= ? and r <= ?";
 
-			int boardnum = 5;
+			int boardnum = 10;
 			int start = (pagenumber - 1) * boardnum + 1;
 			int end = pagenumber * boardnum;
 

@@ -256,11 +256,10 @@ public class AdminSalesDAO {
 	
 	
 	
-	public int[] kindsalescal() {
+	public ArrayList<int[]> kindsalescal() {
 		
 		
-		
-		int[] arr = new int[3];
+		ArrayList<int[]> arlist = new ArrayList<int[]>();
 		Connection con = null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -273,8 +272,9 @@ public class AdminSalesDAO {
 		
 			
 				
-				
-				String sql = "select * from salary_11 sal, menu where sal.menu_seq = menu.menu_id and kind = 1";
+				for(int i = 1 ; i <= 12 ; i++) {
+					int[] arr = new int[3];
+				String sql = "select * from salary_"+i+" sal, menu where sal.menu_seq = menu.menu_id and kind = 1";
 					
 					
 				
@@ -290,7 +290,7 @@ public class AdminSalesDAO {
 					
 				}
 				
-				sql = "select * from salary_11 sal, menu where sal.menu_seq = menu.menu_id and kind = 2";
+				sql = "select * from salary_"+i+" sal, menu where sal.menu_seq = menu.menu_id and kind = 2";
 			
 				st = con.prepareStatement(sql);
 				set = st.executeQuery();
@@ -304,7 +304,7 @@ public class AdminSalesDAO {
 				
 				
 				
-				sql = "select * from salary_11 sal, menu where sal.menu_seq = menu.menu_id and kind = 3";
+				sql = "select * from salary_"+i+" sal, menu where sal.menu_seq = menu.menu_id and kind = 3";
 				
 				st = con.prepareStatement(sql);
 				set = st.executeQuery();
@@ -322,12 +322,13 @@ public class AdminSalesDAO {
 				arr[1]=total_side;
 				arr[2]=total_drink;
 				
-				
+				arlist.add(arr);
 				
 				
 			con.commit();
 
 			st.close();
+				}
 
 		} catch (ClassNotFoundException e) {
 			System.out.println(e.getMessage());
@@ -349,7 +350,7 @@ public class AdminSalesDAO {
 		}
 		
 		
-		return arr;
+		return arlist;
 		
 	}
 	

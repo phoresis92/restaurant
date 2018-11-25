@@ -1,0 +1,206 @@
+insert into salary_11 values(1242346347,24,1502,'18/11/1',1,3 );
+insert into salary_11 values(1242346347,24,8,'18/11/1',7,1 );
+
+insert into salary_11 values(1242346297,4,4,'18/11/2',4,1 );
+
+insert into salary_11 values(1242346575,3,4,'18/11/3',3,1 );
+insert into salary_11 values(1242346575,3,1005,'18/11/3',4,2 );
+
+insert into salary_11 values(1242346814,5,4,'18/11/4',3,1 );
+
+insert into salary_11 values( 1242347531 , 6 , 8 , '18/11/5' , 5 , 1 );
+insert into salary_11 values( 1242347531 , 6 , 1501 , '18/11/5' , 5 , 3 );
+insert into salary_11 values( 1242347531 , 6 , 1002 , '18/11/5' , 5 , 2 );
+
+insert into salary_11 values( 1242347841 , 7 , 5 , '18/11/6' , 4 , 1 );
+insert into salary_11 values( 1242347841 , 7 , 1002 , '18/11/6' , 5 , 2 );
+
+insert into salary_11 values( 124234724 , 8 , 1505 , '18/11/7' , 3 , 3 );
+insert into salary_11 values( 124234724 , 8 , 2 , '18/11/7' , 2 , 1 );
+insert into salary_11 values( 124234724 , 8 , 1002 , '18/11/7' , 6 , 2 );
+
+insert into salary_11 values( 1242347645 , 9 , 4 , '18/11/8' , 4 , 1 );
+insert into salary_11 values( 1242347645 , 9 , 1003 , '18/11/8' , 3 , 2 );
+insert into salary_11 values( 1242347645 , 9 , 1502 , '18/11/8' , 2 , 3 );
+
+insert into salary_11 values( 1242348772 , 10 , 4 , '18/11/9' , 4 , 1 );
+insert into salary_11 values( 1242348772 , 10 , 1502 , '18/11/9' , 6 , 3 );
+
+insert into salary_11 values( 1242348778 , 11 , 1 , '18/11/10' , 4 , 1);
+
+insert into salary_11 values( 1242348847 , 12 , 6 , '18/11/11' , 3 , 1 );
+insert into salary_11 values( 1242348847 , 12 , 1002 , '18/11/11' , 6 , 2 );
+insert into salary_11 values( 1242348847 , 12 , 1501 , '18/11/11' , 3 , 3 );
+
+insert into salary_11 values( 1242349417 , 13 , 7 , '18/11/12' , 4 , 1 );
+insert into salary_11 values( 1242349417 , 13 , 1002 , '18/11/12' , 5 , 2 );
+insert into salary_11 values( 1242349417 , 13 , 1501 , '18/11/12' , 5 , 3 );
+
+insert into salary_11 values( 1242349112 , 14 , 3 , '18/11/13' , 3 , 1 );
+
+insert into salary_11 values( 1242349446 , 15 , 5 , '18/11/14' , 3 , 1 );
+insert into salary_11 values( 1242349446 , 15 , 1501 , '18/11/14' , 4 , 3 );
+insert into salary_11 values( 1242349446 , 15 , 1001 , '18/11/14' , 2 , 2 );
+
+insert into salary_11 values( 1242349955 , 16 , 1003 , '18/11/1' , 2 , 2 );
+insert into salary_11 values( 1242349955 , 16 , 8 , '18/11/1' , 2 , 1 );
+insert into salary_11 values( 1242349955 , 16 , 1503 , '18/11/1' , 2 , 3 );
+
+insert into salary_11 values( 1242350133 , 17 , 5 , '18/11/2' , 2 , 1 );
+insert into salary_11 values( 1242350133 , 17 , 4 , '18/11/2' , 4 , 1 );
+
+insert into salary_11 values( 1242350883 , 18 , 4 , '18/11/3' , 4 , 1 );
+insert into salary_11 values( 1242350883 , 18 , 1005 , '18/11/3' ,2 , 2 );
+insert into salary_11 values( 1242350883 , 18 , 1505 , '18/11/3' , 2 , 3 );
+
+insert into salary_11 values( 1242350322 , 19 , 4 , '18/11/4' , 2 , 1 );
+
+insert into salary_11 values( 1242351415 , 20 , 5 , '18/11/5' , 3 , 1 );
+insert into salary_11 values( 1242351415 , 20 , 3 , '18/11/5' , 2 , 1 );
+
+insert into salary_11 values( 1242351452 , 21 , 1002 , '18/11/6' , 2 , 2 );
+insert into salary_11 values( 1242351452 , 21 , 1 , '18/11/6' , 5 , 1 );
+
+insert into salary_11 values( 1242351915 , 22 , 8 , '18/11/7' , 10 , 1 );
+
+insert into salary_11 values( 1242351657 , 23 , 7 , '18/11/8' , 5 , 1 );
+insert into salary_11 values( 1242351657 , 23 , 1501 , '18/11/8' , 5 , 3 );
+
+insert into salary_11 values( 1242352998 , 24 , 4 , '18/11/9' , 6 , 1 );
+insert into salary_11 values( 1242352998 , 24 , 1004 , '18/11/9' , 4 , 2 );
+insert into salary_11 values( 1242352998 , 24 , 1502 , '18/11/9' , 5 , 3 );
+
+insert into salary_11 values( 124235291 , 25 , 4 , '18/11/10' , 5 , 1 );
+insert into salary_11 values( 124235291 , 25 , 1503 , '18/11/10' , 5 , 3 );
+
+insert into salary_11 values( 1242353708 , 26 , 2 , '18/11/11' , 5 , 1 );
+insert into salary_11 values( 1242353708 , 26 , 1002 , '18/11/11' , 5 , 2 );
+
+insert into salary_11 values( 1242353274 , 27 , 3 , '18/11/12' , 5 , 1 );
+insert into salary_11 values( 1242353274 , 27 , 1004 , '18/11/12' , 5 , 2 );
+insert into salary_11 values( 1242353274 , 27 , 1504 , '18/11/12' , 10 , 3 );
+
+insert into salary_11 values( 1242353710 , 28 , 7 , '18/11/13' , 5 , 1 );
+insert into salary_11 values( 1242353710 , 28 , 1005 , '18/11/13' , 5 , 2 );
+insert into salary_11 values( 1242353710 , 28 , 1503 , '18/11/13' , 3 , 3 );
+
+insert into salary_11 values( 1242354282 , 29 , 6 , '18/11/14' , 5 , 1 );
+insert into salary_11 values( 1242354282 , 29 , 1004 , '18/11/14' , 4 , 2 );
+insert into salary_11 values( 1242354282 , 29 , 1505 , '18/11/14' , 4 , 3 );
+
+insert into salary_11 values( 1242354784 , 30 , 3 , '18/11/1' , 6 , 1 );
+insert into salary_11 values( 1242354784 , 30 , 1002 , '18/11/1' , 6 , 2 );
+
+insert into salary_11 values( 1242354278 , 31 , 1505 , '18/11/2' , 5 , 3 );
+insert into salary_11 values( 1242354278 , 31 , 4 , '18/11/2' , 7 , 1 );
+
+insert into salary_11 values( 1242354379 , 32 , 8 , '18/11/3' , 4 , 1 );
+insert into salary_11 values( 1242354379 , 32 , 1504 , '18/11/3' , 6 , 3 );
+
+insert into salary_11 values( 1242355866 , 33 , 5 , '18/11/4' , 7 , 1 );
+insert into salary_11 values( 1242355866 , 33 , 1502 , '18/11/4' , 5 , 3 );
+insert into salary_11 values( 1242355866 , 33 , 1004 , '18/11/4' , 5 , 2 );
+
+insert into salary_11 values( 1242356327 , 34 , 4 , '18/11/5' , 8 , 1 );
+insert into salary_11 values( 1242356327 , 34 , 1002 , '18/11/5' , 5 , 2 );
+insert into salary_11 values( 1242356327 , 34 , 1005 , '18/11/5' , 5 , 2 );
+insert into salary_11 values( 1242356327 , 34 , 1502 , '18/11/5' , 4 , 3 );
+
+insert into salary_11 values( 1242356668 , 35 , 1 , '18/11/6' , 9 , 1 );
+insert into salary_11 values( 1242356668 , 35 , 1004 , '18/11/6' , 8 , 2 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+insert into salary_11 values( 125137698 , 41 , 8 , '18/11/30' , 3 , 1 );
+insert into salary_11 values( 125137698 , 41 , 1504 , '18/11/30' , 3 , 3 );
+insert into salary_11 values( 125137698 , 41 , 1003 , '18/11/30' ,6 , 2 );
+insert into salary_11 values( 125137698 , 41 , 7 , '18/11/30' , 4 , 1 );
+
+insert into salary_11 values( 12513779 , 40 , 1001 , '18/11/29' , 2 , 2 );
+insert into salary_11 values( 12513779 , 40 , 4 , '18/11/29' , 3 , 1 );
+insert into salary_11 values( 12513779 , 40 , 1505 , '18/11/29' , 3 , 3 );
+
+insert into salary_11 values( 125137900 , 39 , 1503 , '18/11/28' , 3 , 3 );
+insert into salary_11 values( 125137900 , 39 , 1002 , '18/11/28' , 4 , 2 );
+insert into salary_11 values( 125137900 , 39 , 1 , '18/11/28' , 2 , 1 );
+
+insert into salary_11 values( 125138442 , 38 , 6 , '18/11/27' , 2 , 1 );
+insert into salary_11 values( 125138442 , 38 , 1003 , '18/11/27' , 5 , 2 );
+insert into salary_11 values( 125138442 , 38 , 1504 , '18/11/27' , 2 , 3 );
+
+insert into salary_11 values( 125138368 , 37 , 1505 , '18/11/26' , 3 , 3 );
+insert into salary_11 values( 125138368 , 37 , 7 , '18/11/26' , 4 , 1 );
+
+insert into salary_11 values( 125138352 , 36 , 3 , '18/11/25' , 5 , 1 );
+
+insert into salary_11 values( 125138616 , 2 , 1004 , '18/11/24' ,4 , 2 );
+insert into salary_11 values( 125138616 , 2 , 6 , '18/11/24' , 6 , 1 );
+
+insert into salary_11 values( 125139614 , 3 , 1503 , '18/11/23' , 4 , 3 );
+insert into salary_11 values( 125139614 , 3 , 1501 , '18/11/23' ,4 , 3 );
+insert into salary_11 values( 125139614 , 3 , 5 , '18/11/23' , 5 , 1 );
+
+insert into salary_11 values( 125139148 , 4 , 1004 , '18/11/22' , 3 , 2 );
+insert into salary_11 values( 125139148 , 4 , 4 , '18/11/22' , 4 , 1 );
+insert into salary_11 values( 125139148 , 4 , 1502 , '18/11/22' , 4 , 3 );
+
+insert into salary_11 values( 125139626 , 5 , 2 , '18/11/21' , 3 , 1 );
+
+insert into salary_11 values( 125140774 , 6 , 1504 , '18/11/20' , 2 , 3 );
+insert into salary_11 values( 125140774 , 6 , 5 , '18/11/20' , 4 , 1 );
+
+insert into salary_11 values( 125140780 , 7 , 1505 , '18/11/19' , 3 , 3 );
+insert into salary_11 values( 125140780 , 7 , 8 , '18/11/19' , 3 , 1 );
+
+insert into salary_11 values( 125140643 , 8 , 5 , '18/11/18' , 4 , 1 );
+
+insert into salary_11 values( 125149938 , 9 , 5 , '18/11/17' , 5 , 1 );
+
+insert into salary_11 values( 125150935 , 10 , 3 , '18/11/16' , 5 , 1 );
+insert into salary_11 values( 125150935 , 10 , 1501 , '18/11/16' , 2 , 3 );
+
+insert into salary_11 values( 125150773 , 11 , 2 , '18/11/30' , 4 , 1 );
+insert into salary_11 values( 125150773 , 11 , 1504 , '18/11/30' , 2 , 3 );
+
+insert into salary_11 values( 125150859 , 12 , 6 , '18/11/29' , 3 , 1 );
+insert into salary_11 values( 125150859 , 12 , 1503 , '18/11/29' , 2 , 3 );
+
+insert into salary_11 values( 125150618 , 13 , 7 , '18/11/28' , 7 , 1 );
+
+insert into salary_11 values( 125150872 , 14 , 4 , '18/11/27' , 3 , 1 );
+insert into salary_11 values( 125150872 , 14 , 1005 , '18/11/27' , 3 , 2 );
+
+insert into salary_11 values( 125151726 , 15 , 1002 , '18/11/26' , 5 , 2 );
+insert into salary_11 values( 125151726 , 15 , 8 , '18/11/26' , 6 , 1 );
+
+insert into salary_11 values( 125151240 , 14 , 4 , '18/11/25' , 4 , 1 );
+insert into salary_11 values( 125151240 , 14 , 1004 , '18/11/25' , 2 , 2 );
+insert into salary_11 values( 125151240 , 14 , 1504 , '18/11/25' , 2 , 3 );
+
+insert into salary_11 values( 125151822 , 15 , 1 , '18/11/24' , 6 , 1 );
+insert into salary_11 values( 125151822 , 15 , 3 , '18/11/24' , 5 , 1 );
+insert into salary_11 values( 125151822 , 15 , 1501 , '18/11/24' , 3 , 3 );
+
+insert into salary_11 values( 12515243 , 16 , 8 , '18/11/23' , 3 , 1 );
+insert into salary_11 values( 12515243 , 16 , 6 , '18/11/23' , 3 , 1 );
+
+insert into salary_11 values( 125152535 , 17 , 1002 , '18/11/22' , 4 , 2 );
+insert into salary_11 values( 125152535 , 17 , 1502 , '18/11/22' , 1 , 3 );
+insert into salary_11 values( 125152535 , 17 , 2 , '18/11/22' , 4 , 1 );
+
+insert into salary_11 values( 125153203 , 18 , 5 , '18/11/21' , 4 , 1 );
+insert into salary_11 values( 125153203 , 18 , 1004 , '18/11/21' , 5 , 2 );
+
+insert into salary_11 values( 1251532 , 19 , 6 , '18/11/20' , 5 , 1 );
+
+

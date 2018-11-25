@@ -159,7 +159,7 @@ public class GraphPanel extends JPanel {
         
         GraphPanel mainPanel = new GraphPanel(scores);
         mainPanel.setPreferredSize(new Dimension(800, 600));
-        JFrame frame = new JFrame("DrawGraph");
+        JFrame frame = new JFrame("월별매출 현황 그래프");
         frame.getContentPane().add(mainPanel);
         frame.pack();
         frame.setLocationRelativeTo(null);
