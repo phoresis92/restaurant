@@ -5,11 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
-import javax.swing.SwingUtilities;
-
 import dao.AdminSalesDAO;
-import main.Administer;
-import main.GraphPanel;
+import main.GraphPanel_Monthly;
+import main.GraphPanel_kindly;
 import main.Static;
 
 public class AdminSalesView {
@@ -137,7 +135,7 @@ public class AdminSalesView {
 			scores.add(dec12);
 			scores.add(dec22);
 			
-			GraphPanel gp = new GraphPanel(scores);
+			GraphPanel_Monthly gp = new GraphPanel_Monthly(scores);
 			String[] a = new String[3];
 			gp.main(a);
 		
@@ -296,6 +294,12 @@ public class AdminSalesView {
 		
 		ArrayList<int[]> arlist = dao.kindsalescal();
 		
+		ArrayList<Double> main = new ArrayList<Double>();
+		ArrayList<Double> side = new ArrayList<Double>();
+		ArrayList<Double> drink = new ArrayList<Double>();
+		
+		
+		
 		for(int i = 0 ; i<=11 ; i++) {
 			
 			int[] arr = arlist.get(i);
@@ -304,9 +308,23 @@ public class AdminSalesView {
 			System.out.println("메인메뉴 : "+(arr[0]/1000)+"천원");
 			System.out.println("사이드메뉴 : "+(arr[1]/1000)+"천원");
 			System.out.println("드링크메뉴 : "+(arr[2]/1000)+"천원");
+			
+			main.add(Double.valueOf(arr[0]));
+			side.add(Double.valueOf(arr[1]));
+			drink.add(Double.valueOf(arr[2]));
+			
 		}
 		
+	
+		GraphPanel_kindly gp = new GraphPanel_kindly(main,side,drink);
+		String[] a = new String[3];
+		gp.main(a);
+	
+		
+		
+		
 	}
+	
 	
 	
 	

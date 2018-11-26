@@ -1,0 +1,15 @@
+
+create table salary_12(
+pay_seq varchar2(4000) ,
+member_seq number(5) constraint sal12_member_seq_nn not null,
+menu_seq number(5) constraint sal12_menu_seq_nn not null,
+paydate Date default sysdate,
+count number(3) ,
+kind number(1) );
+
+
+
+
+
+
+
