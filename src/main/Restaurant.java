@@ -81,7 +81,7 @@ public class Restaurant {
 					System.out.println("로그인 후 사용하세요");
 				}
 			}else if(select == 3) {
-				if(Static.isLogin(login)) {
+				if(Static.isLogin(login)){
 					ReserveView rv = new ReserveView(login);
 					rv.when();
 				}else {

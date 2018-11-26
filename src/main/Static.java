@@ -25,7 +25,6 @@ public class Static {
 		if(login == null) {
 			return false;
 		}else if(login.size() == 0) {
-			System.out.println("로그인 후 이용해주세요");
 			return false;
 		}else return true;
 	}
