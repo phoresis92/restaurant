@@ -3,6 +3,7 @@ package main;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -10,15 +11,11 @@ import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.Stroke;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-
-import dao.AdminSalesDAO;
 
 public class GraphPanel_kindly extends JPanel {
 
@@ -134,7 +131,11 @@ public class GraphPanel_kindly extends JPanel {
                 g2.drawLine(x0, y0, x1, y1);
             }
         }
-        
+        String xLabel = "\n[Blue : 메인메뉴, green : 사이드메뉴, Red : 드링크메뉴]";
+
+        FontMetrics metrics = g2.getFontMetrics();
+        metrics.stringWidth(xLabel);
+        g2.drawString(xLabel, 20, 10);
 //=============================================================================================        
         
         
@@ -148,7 +149,7 @@ public class GraphPanel_kindly extends JPanel {
 //=============================================================================================        
 
         Stroke oldStroke = g2.getStroke();
-        g2.setColor(Color.BLACK);
+        g2.setColor(Color.BLUE);
         g2.setStroke(GRAPH_STROKE);
         for (int i = 0; i < maingraphPoints.size() - 1; i++) { //그래프 선그리기
             int x1 = maingraphPoints.get(i).x;
@@ -172,7 +173,7 @@ public class GraphPanel_kindly extends JPanel {
         }
         
         oldStroke = g2.getStroke();
-        g2.setColor(Color.PINK);
+        g2.setColor(Color.RED);
         g2.setStroke(GRAPH_STROKE);
         for (int i = 0; i < drinkgraphPoints.size() - 1; i++) { //그래프 선그리기
             int x1 = drinkgraphPoints.get(i).x;
@@ -264,6 +265,7 @@ public class GraphPanel_kindly extends JPanel {
         
         
         GraphPanel_kindly mainPanel = new GraphPanel_kindly(main, side, drink);
+
         mainPanel.setPreferredSize(new Dimension(800, 600));
         JFrame frame = new JFrame("종류별 매출 현황 그래프");
         frame.getContentPane().add(mainPanel);
